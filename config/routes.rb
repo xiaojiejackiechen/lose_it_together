@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :user_logins
+  resources :user_logins
   resources :personal_trainer_profiles
   resources :exercises
   resources :weight_tracker_profiles
