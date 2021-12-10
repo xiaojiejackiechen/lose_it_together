@@ -16,7 +16,7 @@
 
     <%= f.label :weight_tracker_user_id %>
     <!-- Input for weight_tracker_user_id start -->
-    <%= f.number_field :weight_tracker_user_id, class: weight_tracker_user_class, placeholder: "Enter weight tracker user" %>
+    <%= f.collection_select :weight_tracker_user_id, WeightTrackerProfile.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for weight_tracker_user_id end -->
     <% if weight_tracker_user_was_invalid %>
       <% weight_daily_entry.errors.full_messages_for(:weight_tracker_user).each do |message| %>
