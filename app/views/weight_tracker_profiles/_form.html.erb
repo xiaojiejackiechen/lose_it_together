@@ -120,7 +120,7 @@
 
     <%= f.label :associated_personal_trainer_id %>
     <!-- Input for associated_personal_trainer_id start -->
-    <%= f.number_field :associated_personal_trainer_id, class: associated_personal_trainer_class, placeholder: "Enter associated personal trainer" %>
+    <%= f.collection_select :associated_personal_trainer_id, PersonalTrainerProfile.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for associated_personal_trainer_id end -->
     <% if associated_personal_trainer_was_invalid %>
       <% weight_tracker_profile.errors.full_messages_for(:associated_personal_trainer).each do |message| %>
