@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :personal_trainer_profiles
   resources :exercises
   resources :weight_tracker_profiles
   resources :weight_daily_entries
