@@ -1,0 +1,83 @@
+<% was_validated = meal.errors.any? %>
+
+<%= form_with(model: meal, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for weight_tracker_user_id start -->
+  <div class="form-group">
+    <% weight_tracker_user_class = "form-control" %>
+    <% weight_tracker_user_was_invalid = meal.errors.include?(:weight_tracker_user) %>
+
+    <% if was_validated %>
+      <% if weight_tracker_user_was_invalid %>
+        <% weight_tracker_user_class << " is-invalid" %>
+      <% else %>
+        <% weight_tracker_user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :weight_tracker_user_id %>
+    <!-- Input for weight_tracker_user_id start -->
+    <%= f.number_field :weight_tracker_user_id, class: weight_tracker_user_class, placeholder: "Enter weight tracker user" %>
+    <!-- Input for weight_tracker_user_id end -->
+    <% if weight_tracker_user_was_invalid %>
+      <% meal.errors.full_messages_for(:weight_tracker_user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for weight_tracker_user_id end -->
+  <!-- Label and input for date_and_time_of_meal start -->
+  <div class="form-group">
+    <% date_and_time_of_meal_class = "form-control" %>
+    <% date_and_time_of_meal_was_invalid = meal.errors.include?(:date_and_time_of_meal) %>
+
+    <% if was_validated %>
+      <% if date_and_time_of_meal_was_invalid %>
+        <% date_and_time_of_meal_class << " is-invalid" %>
+      <% else %>
+        <% date_and_time_of_meal_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :date_and_time_of_meal %>
+    <!-- Input for date_and_time_of_meal start -->
+    <%= f.datetime_select :date_and_time_of_meal, class: date_and_time_of_meal_class, placeholder: "Enter date and time of meal" %>
+    <!-- Input for date_and_time_of_meal end -->
+    <% if date_and_time_of_meal_was_invalid %>
+      <% meal.errors.full_messages_for(:date_and_time_of_meal).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for date_and_time_of_meal end -->
+  <!-- Label and input for meal_type start -->
+  <div class="form-group">
+    <% meal_type_class = "form-control" %>
+    <% meal_type_was_invalid = meal.errors.include?(:meal_type) %>
+
+    <% if was_validated %>
+      <% if meal_type_was_invalid %>
+        <% meal_type_class << " is-invalid" %>
+      <% else %>
+        <% meal_type_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :meal_type %>
+    <!-- Input for meal_type start -->
+    <%= f.number_field :meal_type, class: meal_type_class, placeholder: "Enter meal type" %>
+    <!-- Input for meal_type end -->
+    <% if meal_type_was_invalid %>
+      <% meal.errors.full_messages_for(:meal_type).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for meal_type end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
