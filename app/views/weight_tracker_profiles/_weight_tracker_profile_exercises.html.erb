@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Exercises
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @weight_tracker_profile.exercises.each do |exercise| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <a href="/exercises/<%= exercise.id %>">
+          <%= exercise %>
+        </a>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>

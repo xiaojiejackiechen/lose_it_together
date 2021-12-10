@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Weight Tracker Profiles
+
+    <a data-toggle="collapse" href="#user_login_weight_tracker_profiles_new_form">
+      Add weight tracker profile
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user_login.weight_tracker_profiles.each do |weight_tracker_profile| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to weight_tracker_profile, weight_tracker_profile %>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_login_weight_tracker_profiles_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

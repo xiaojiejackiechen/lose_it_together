@@ -42,8 +42,14 @@ class WorkoutCommentsController < ApplicationController
   # DELETE /workout_comments/1
   def destroy
     @workout_comment.destroy
-    redirect_to workout_comments_url, notice: 'Workout comment was successfully destroyed.'
+    message = "WorkoutComment was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to workout_comments_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

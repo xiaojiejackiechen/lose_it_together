@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Meals
+
+    <a data-toggle="collapse" href="#weight_tracker_profile_meals_new_form">
+      Add meal
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @weight_tracker_profile.meals.each do |meal| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to meal, meal %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to meal, method: :delete, data: { confirm: "Do you really want to delete this meal" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="weight_tracker_profile_meals_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

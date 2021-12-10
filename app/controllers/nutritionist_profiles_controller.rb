@@ -42,8 +42,14 @@ class NutritionistProfilesController < ApplicationController
   # DELETE /nutritionist_profiles/1
   def destroy
     @nutritionist_profile.destroy
-    redirect_to nutritionist_profiles_url, notice: 'Nutritionist profile was successfully destroyed.'
+    message = "NutritionistProfile was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to nutritionist_profiles_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

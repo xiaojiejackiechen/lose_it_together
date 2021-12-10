@@ -42,8 +42,14 @@ class WeightDailyEntriesController < ApplicationController
   # DELETE /weight_daily_entries/1
   def destroy
     @weight_daily_entry.destroy
-    redirect_to weight_daily_entries_url, notice: 'Weight daily entry was successfully destroyed.'
+    message = "WeightDailyEntry was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to weight_daily_entries_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

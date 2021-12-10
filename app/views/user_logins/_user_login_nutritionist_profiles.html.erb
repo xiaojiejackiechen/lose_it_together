@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Nutritionist Profiles
+
+    <a data-toggle="collapse" href="#user_login_nutritionist_profiles_new_form">
+      Add nutritionist profile
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user_login.nutritionist_profiles.each do |nutritionist_profile| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to nutritionist_profile, nutritionist_profile %>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_login_nutritionist_profiles_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>
