@@ -1,0 +1,31 @@
+<!-- Form meal start -->
+<%= form_with(model: @meal, local: true) do |f| %>
+<!-- Form meal end -->
+
+  <!-- Label and input for weight_tracker_user_id start -->
+  <!-- Input for weight_tracker_user_id start -->
+  <%= f.hidden_field :weight_tracker_user_id, value: @weight_tracker_profile.id %>
+  <!-- Input for weight_tracker_user_id end -->
+  <!-- Label and input for weight_tracker_user_id end -->
+
+  <!-- Label and input for date_and_time_of_meal start -->
+  <div class="form-group">
+    <%= f.label :date_and_time_of_meal %>
+    <!-- Input for date_and_time_of_meal start -->
+    <%= f.datetime_select :date_and_time_of_meal, class: "form-control" %>
+    <!-- Input for date_and_time_of_meal end -->
+  </div>
+  <!-- Label and input for date_and_time_of_meal end -->
+
+  <!-- Label and input for meal_type start -->
+  <div class="form-group">
+    <%= f.label :meal_type %>
+
+    <!-- Input for meal_type start -->
+    <%= f.text_field :meal_type, class: "form-control" %>
+    <!-- Input for meal_type end -->
+  </div>
+  <!-- Label and input for meal_type end -->
+
+  <%= f.submit "Create meal", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

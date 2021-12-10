@@ -24,7 +24,12 @@ class FoodsController < ApplicationController
     @food = Food.new(food_params)
 
     if @food.save
-      redirect_to @food, notice: 'Food was successfully created.'
+      message = 'Food was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @food, notice: message
+      end
     else
       render :new
     end

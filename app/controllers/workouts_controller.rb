@@ -8,6 +8,8 @@ class WorkoutsController < ApplicationController
 
   # GET /workouts/1
   def show
+    @workout_comment = WorkoutComment.new
+    @exercise = Exercise.new
   end
 
   # GET /workouts/new
@@ -24,7 +26,12 @@ class WorkoutsController < ApplicationController
     @workout = Workout.new(workout_params)
 
     if @workout.save
-      redirect_to @workout, notice: 'Workout was successfully created.'
+      message = 'Workout was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @workout, notice: message
+      end
     else
       render :new
     end

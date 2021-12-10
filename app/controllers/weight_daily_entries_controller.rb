@@ -24,7 +24,12 @@ class WeightDailyEntriesController < ApplicationController
     @weight_daily_entry = WeightDailyEntry.new(weight_daily_entry_params)
 
     if @weight_daily_entry.save
-      redirect_to @weight_daily_entry, notice: 'Weight daily entry was successfully created.'
+      message = 'WeightDailyEntry was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @weight_daily_entry, notice: message
+      end
     else
       render :new
     end

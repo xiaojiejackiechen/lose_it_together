@@ -24,7 +24,12 @@ class WorkoutCommentsController < ApplicationController
     @workout_comment = WorkoutComment.new(workout_comment_params)
 
     if @workout_comment.save
-      redirect_to @workout_comment, notice: 'Workout comment was successfully created.'
+      message = 'WorkoutComment was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @workout_comment, notice: message
+      end
     else
       render :new
     end

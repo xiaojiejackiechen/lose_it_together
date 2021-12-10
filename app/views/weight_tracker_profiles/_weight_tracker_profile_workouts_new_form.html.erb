@@ -1,0 +1,22 @@
+<!-- Form workout start -->
+<%= form_with(model: @workout, local: true) do |f| %>
+<!-- Form workout end -->
+
+  <!-- Label and input for workout_date start -->
+  <div class="form-group">
+    <%= f.label :workout_date %>
+
+    <!-- Input for workout_date start -->
+    <%= f.date_select :workout_date, class: "form-control" %>
+    <!-- Input for workout_date end -->
+  </div>
+  <!-- Label and input for workout_date end -->
+
+  <!-- Label and input for weight_tracker_user_id start -->
+  <!-- Input for weight_tracker_user_id start -->
+  <%= f.hidden_field :weight_tracker_user_id, value: @weight_tracker_profile.id %>
+  <!-- Input for weight_tracker_user_id end -->
+  <!-- Label and input for weight_tracker_user_id end -->
+
+  <%= f.submit "Create workout", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

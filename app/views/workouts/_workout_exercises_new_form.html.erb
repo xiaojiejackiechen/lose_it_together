@@ -1,0 +1,42 @@
+<!-- Form exercise start -->
+<%= form_with(model: @exercise, local: true) do |f| %>
+<!-- Form exercise end -->
+
+  <!-- Label and input for workout_id start -->
+  <!-- Input for workout_id start -->
+  <%= f.hidden_field :workout_id, value: @workout.id %>
+  <!-- Input for workout_id end -->
+  <!-- Label and input for workout_id end -->
+
+  <!-- Label and input for excercise_id start -->
+  <div class="form-group">
+    <%= f.label :excercise_id %>
+
+    <!-- Input for excercise_id start -->
+    <%= f.text_field :excercise_id, class: "form-control" %>
+    <!-- Input for excercise_id end -->
+  </div>
+  <!-- Label and input for excercise_id end -->
+
+  <!-- Label and input for number_of_rep start -->
+  <div class="form-group">
+    <%= f.label :number_of_rep %>
+
+    <!-- Input for number_of_rep start -->
+    <%= f.text_field :number_of_rep, class: "form-control" %>
+    <!-- Input for number_of_rep end -->
+  </div>
+  <!-- Label and input for number_of_rep end -->
+
+  <!-- Label and input for calorie_burned start -->
+  <div class="form-group">
+    <%= f.label :calorie_burned %>
+
+    <!-- Input for calorie_burned start -->
+    <%= f.text_field :calorie_burned, class: "form-control" %>
+    <!-- Input for calorie_burned end -->
+  </div>
+  <!-- Label and input for calorie_burned end -->
+
+  <%= f.submit "Create exercise", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

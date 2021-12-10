@@ -8,6 +8,8 @@ class MealsController < ApplicationController
 
   # GET /meals/1
   def show
+    @meal_comment = MealComment.new
+    @food = Food.new
   end
 
   # GET /meals/new
@@ -24,7 +26,12 @@ class MealsController < ApplicationController
     @meal = Meal.new(meal_params)
 
     if @meal.save
-      redirect_to @meal, notice: 'Meal was successfully created.'
+      message = 'Meal was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @meal, notice: message
+      end
     else
       render :new
     end

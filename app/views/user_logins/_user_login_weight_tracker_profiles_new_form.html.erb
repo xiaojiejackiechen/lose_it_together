@@ -1,0 +1,72 @@
+<!-- Form weight_tracker_profile start -->
+<%= form_with(model: @weight_tracker_profile, local: true) do |f| %>
+<!-- Form weight_tracker_profile end -->
+
+  <!-- Label and input for username start -->
+  <div class="form-group">
+    <%= f.label :username %>
+
+    <!-- Input for username start -->
+    <%= f.text_field :username, class: "form-control" %>
+    <!-- Input for username end -->
+  </div>
+  <!-- Label and input for username end -->
+
+  <!-- Label and input for target_daily_calories start -->
+  <div class="form-group">
+    <%= f.label :target_daily_calories %>
+
+    <!-- Input for target_daily_calories start -->
+    <%= f.text_field :target_daily_calories, class: "form-control" %>
+    <!-- Input for target_daily_calories end -->
+  </div>
+  <!-- Label and input for target_daily_calories end -->
+
+  <!-- Label and input for target_weight_in_lb start -->
+  <div class="form-group">
+    <%= f.label :target_weight_in_lb %>
+
+    <!-- Input for target_weight_in_lb start -->
+    <%= f.text_field :target_weight_in_lb, class: "form-control" %>
+    <!-- Input for target_weight_in_lb end -->
+  </div>
+  <!-- Label and input for target_weight_in_lb end -->
+
+  <!-- Label and input for profile_pic start -->
+  <div class="form-group">
+    <%= f.label :profile_pic %>
+
+    <!-- Input for profile_pic start -->
+    <%= f.text_field :profile_pic, class: "form-control" %>
+    <!-- Input for profile_pic end -->
+  </div>
+  <!-- Label and input for profile_pic end -->
+
+  <!-- Label and input for associated_personal_trainer_id start -->
+  <div class="form-group">
+    <%= f.label :associated_personal_trainer_id %>
+
+    <!-- Input for associated_personal_trainer_id start -->
+    <%= f.text_field :associated_personal_trainer_id, class: "form-control" %>
+    <!-- Input for associated_personal_trainer_id end -->
+  </div>
+  <!-- Label and input for associated_personal_trainer_id end -->
+
+  <!-- Label and input for associated_nutritionist_id start -->
+  <div class="form-group">
+    <%= f.label :associated_nutritionist_id %>
+
+    <!-- Input for associated_nutritionist_id start -->
+    <%= f.text_field :associated_nutritionist_id, class: "form-control" %>
+    <!-- Input for associated_nutritionist_id end -->
+  </div>
+  <!-- Label and input for associated_nutritionist_id end -->
+
+  <!-- Label and input for login_id start -->
+  <!-- Input for login_id start -->
+  <%= f.hidden_field :login_id, value: @user_login.id %>
+  <!-- Input for login_id end -->
+  <!-- Label and input for login_id end -->
+
+  <%= f.submit "Create weight tracker profile", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

@@ -8,6 +8,11 @@ class UserLoginsController < ApplicationController
 
   # GET /user_logins/1
   def show
+    @meal_comment = MealComment.new
+    @workout_comment = WorkoutComment.new
+    @nutritionist_profile = NutritionistProfile.new
+    @personal_trainer_profile = PersonalTrainerProfile.new
+    @weight_tracker_profile = WeightTrackerProfile.new
   end
 
   # GET /user_logins/new

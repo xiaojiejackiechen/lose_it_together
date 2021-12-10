@@ -24,7 +24,12 @@ class MealCommentsController < ApplicationController
     @meal_comment = MealComment.new(meal_comment_params)
 
     if @meal_comment.save
-      redirect_to @meal_comment, notice: 'Meal comment was successfully created.'
+      message = 'MealComment was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @meal_comment, notice: message
+      end
     else
       render :new
     end

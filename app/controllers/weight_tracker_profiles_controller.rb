@@ -8,6 +8,9 @@ class WeightTrackerProfilesController < ApplicationController
 
   # GET /weight_tracker_profiles/1
   def show
+    @workout = Workout.new
+    @weight_daily_entry = WeightDailyEntry.new
+    @meal = Meal.new
   end
 
   # GET /weight_tracker_profiles/new
@@ -24,7 +27,12 @@ class WeightTrackerProfilesController < ApplicationController
     @weight_tracker_profile = WeightTrackerProfile.new(weight_tracker_profile_params)
 
     if @weight_tracker_profile.save
-      redirect_to @weight_tracker_profile, notice: 'Weight tracker profile was successfully created.'
+      message = 'WeightTrackerProfile was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @weight_tracker_profile, notice: message
+      end
     else
       render :new
     end
