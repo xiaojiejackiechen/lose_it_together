@@ -8,6 +8,8 @@ class WorkoutCommentResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :workout
+
   # Indirect associations
 
 end
