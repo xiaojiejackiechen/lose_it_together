@@ -1,25 +1,20 @@
 class MealCommentsController < ApplicationController
   before_action :set_meal_comment, only: %i[show edit update destroy]
 
-  # GET /meal_comments
   def index
     @q = MealComment.ransack(params[:q])
     @meal_comments = @q.result(distinct: true).includes(:meal,
                                                         :user).page(params[:page]).per(10)
   end
 
-  # GET /meal_comments/1
   def show; end
 
-  # GET /meal_comments/new
   def new
     @meal_comment = MealComment.new
   end
 
-  # GET /meal_comments/1/edit
   def edit; end
 
-  # POST /meal_comments
   def create
     @meal_comment = MealComment.new(meal_comment_params)
 
@@ -35,7 +30,6 @@ class MealCommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /meal_comments/1
   def update
     if @meal_comment.update(meal_comment_params)
       redirect_to @meal_comment,
@@ -45,7 +39,6 @@ class MealCommentsController < ApplicationController
     end
   end
 
-  # DELETE /meal_comments/1
   def destroy
     @meal_comment.destroy
     message = "MealComment was successfully deleted."
@@ -58,12 +51,10 @@ class MealCommentsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_meal_comment
     @meal_comment = MealComment.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def meal_comment_params
     params.require(:meal_comment).permit(:meal_id, :commenter_user_id,
                                          :comment_text)

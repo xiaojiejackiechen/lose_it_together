@@ -1,25 +1,20 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: %i[show edit update destroy]
 
-  # GET /foods
   def index
     @q = Food.ransack(params[:q])
     @foods = @q.result(distinct: true).includes(:meal,
                                                 :user).page(params[:page]).per(10)
   end
 
-  # GET /foods/1
   def show; end
 
-  # GET /foods/new
   def new
     @food = Food.new
   end
 
-  # GET /foods/1/edit
   def edit; end
 
-  # POST /foods
   def create
     @food = Food.new(food_params)
 
@@ -35,7 +30,6 @@ class FoodsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /foods/1
   def update
     if @food.update(food_params)
       redirect_to @food, notice: "Food was successfully updated."
@@ -44,7 +38,6 @@ class FoodsController < ApplicationController
     end
   end
 
-  # DELETE /foods/1
   def destroy
     @food.destroy
     message = "Food was successfully deleted."
@@ -57,12 +50,10 @@ class FoodsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_food
     @food = Food.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def food_params
     params.require(:food).permit(:meal_id, :food_name,
                                  :number_of_gram_consumed, :calories_consumed)

@@ -1,24 +1,19 @@
 class WeightDailyEntriesController < ApplicationController
   before_action :set_weight_daily_entry, only: %i[show edit update destroy]
 
-  # GET /weight_daily_entries
   def index
     @q = WeightDailyEntry.ransack(params[:q])
     @weight_daily_entries = @q.result(distinct: true).includes(:weight_tracker_user).page(params[:page]).per(10)
   end
 
-  # GET /weight_daily_entries/1
   def show; end
 
-  # GET /weight_daily_entries/new
   def new
     @weight_daily_entry = WeightDailyEntry.new
   end
 
-  # GET /weight_daily_entries/1/edit
   def edit; end
 
-  # POST /weight_daily_entries
   def create
     @weight_daily_entry = WeightDailyEntry.new(weight_daily_entry_params)
 
@@ -34,7 +29,6 @@ class WeightDailyEntriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /weight_daily_entries/1
   def update
     if @weight_daily_entry.update(weight_daily_entry_params)
       redirect_to @weight_daily_entry,
@@ -44,7 +38,6 @@ class WeightDailyEntriesController < ApplicationController
     end
   end
 
-  # DELETE /weight_daily_entries/1
   def destroy
     @weight_daily_entry.destroy
     message = "WeightDailyEntry was successfully deleted."
@@ -57,12 +50,10 @@ class WeightDailyEntriesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_weight_daily_entry
     @weight_daily_entry = WeightDailyEntry.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def weight_daily_entry_params
     params.require(:weight_daily_entry).permit(:weight_tracker_user_id,
                                                :weight_in_lb, :recorded_date)

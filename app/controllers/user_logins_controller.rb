@@ -1,12 +1,10 @@
 class UserLoginsController < ApplicationController
   before_action :set_user_login, only: %i[show edit update destroy]
 
-  # GET /user_logins
   def index
     @user_logins = UserLogin.page(params[:page]).per(10)
   end
 
-  # GET /user_logins/1
   def show
     @meal_comment = MealComment.new
     @workout_comment = WorkoutComment.new
@@ -15,15 +13,12 @@ class UserLoginsController < ApplicationController
     @weight_tracker_profile = WeightTrackerProfile.new
   end
 
-  # GET /user_logins/new
   def new
     @user_login = UserLogin.new
   end
 
-  # GET /user_logins/1/edit
   def edit; end
 
-  # POST /user_logins
   def create
     @user_login = UserLogin.new(user_login_params)
 
@@ -34,7 +29,6 @@ class UserLoginsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /user_logins/1
   def update
     if @user_login.update(user_login_params)
       redirect_to @user_login, notice: "User login was successfully updated."
@@ -43,7 +37,6 @@ class UserLoginsController < ApplicationController
     end
   end
 
-  # DELETE /user_logins/1
   def destroy
     @user_login.destroy
     redirect_to user_logins_url,
@@ -52,12 +45,10 @@ class UserLoginsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_user_login
     @user_login = UserLogin.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def user_login_params
     params.require(:user_login).permit(:username, :user_type)
   end
