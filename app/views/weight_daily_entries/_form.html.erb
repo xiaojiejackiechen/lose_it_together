@@ -1,0 +1,83 @@
+<% was_validated = weight_daily_entry.errors.any? %>
+
+<%= form_with(model: weight_daily_entry, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for weight_tracker_user_id start -->
+  <div class="form-group">
+    <% weight_tracker_user_class = "form-control" %>
+    <% weight_tracker_user_was_invalid = weight_daily_entry.errors.include?(:weight_tracker_user) %>
+
+    <% if was_validated %>
+      <% if weight_tracker_user_was_invalid %>
+        <% weight_tracker_user_class << " is-invalid" %>
+      <% else %>
+        <% weight_tracker_user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :weight_tracker_user_id %>
+    <!-- Input for weight_tracker_user_id start -->
+    <%= f.number_field :weight_tracker_user_id, class: weight_tracker_user_class, placeholder: "Enter weight tracker user" %>
+    <!-- Input for weight_tracker_user_id end -->
+    <% if weight_tracker_user_was_invalid %>
+      <% weight_daily_entry.errors.full_messages_for(:weight_tracker_user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for weight_tracker_user_id end -->
+  <!-- Label and input for weight_in_lb start -->
+  <div class="form-group">
+    <% weight_in_lb_class = "form-control" %>
+    <% weight_in_lb_was_invalid = weight_daily_entry.errors.include?(:weight_in_lb) %>
+
+    <% if was_validated %>
+      <% if weight_in_lb_was_invalid %>
+        <% weight_in_lb_class << " is-invalid" %>
+      <% else %>
+        <% weight_in_lb_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :weight_in_lb %>
+    <!-- Input for weight_in_lb start -->
+    <%= f.number_field :weight_in_lb, class: weight_in_lb_class, placeholder: "Enter weight in lb" %>
+    <!-- Input for weight_in_lb end -->
+    <% if weight_in_lb_was_invalid %>
+      <% weight_daily_entry.errors.full_messages_for(:weight_in_lb).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for weight_in_lb end -->
+  <!-- Label and input for recorded_date start -->
+  <div class="form-group">
+    <% recorded_date_class = "form-control" %>
+    <% recorded_date_was_invalid = weight_daily_entry.errors.include?(:recorded_date) %>
+
+    <% if was_validated %>
+      <% if recorded_date_was_invalid %>
+        <% recorded_date_class << " is-invalid" %>
+      <% else %>
+        <% recorded_date_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :recorded_date %>
+    <!-- Input for recorded_date start -->
+    <%= f.datetime_select :recorded_date, class: recorded_date_class, placeholder: "Enter recorded date" %>
+    <!-- Input for recorded_date end -->
+    <% if recorded_date_was_invalid %>
+      <% weight_daily_entry.errors.full_messages_for(:recorded_date).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for recorded_date end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
