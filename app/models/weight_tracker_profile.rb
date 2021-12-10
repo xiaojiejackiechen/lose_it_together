@@ -1,6 +1,10 @@
 class WeightTrackerProfile < ApplicationRecord
   # Direct associations
 
+  belongs_to :nutritionist,
+             :class_name => "NutritionistProfile",
+             :foreign_key => "associated_nutritionist_id"
+
   belongs_to :login,
              :class_name => "UserLogin"
 

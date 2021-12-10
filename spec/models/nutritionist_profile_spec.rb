@@ -4,6 +4,8 @@ RSpec.describe NutritionistProfile, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:weight_tracker) }
+
     it { should belong_to(:login) }
 
     end
