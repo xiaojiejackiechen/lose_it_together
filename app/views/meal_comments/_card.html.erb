@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Meal</dt>
       <!-- Display meal_id start -->
-      <dd><%= meal_comment.meal_id %></dd>
+      <dd>
+        <% if @meal_comment.meal.present? %>
+          <%= link_to meal_comment.meal, meal_comment.meal %>
+        <% end %>
+      </dd>
       <!-- Display meal_id end -->
 
       <dt>Commenter user</dt>
       <!-- Display commenter_user_id start -->
-      <dd><%= meal_comment.commenter_user_id %></dd>
+      <dd>
+        <% if @meal_comment.user.present? %>
+          <%= link_to meal_comment.user, meal_comment.user %>
+        <% end %>
+      </dd>
       <!-- Display commenter_user_id end -->
 
       <dt>Comment text</dt>

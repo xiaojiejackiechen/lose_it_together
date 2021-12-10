@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Weight tracker user</dt>
       <!-- Display weight_tracker_user_id start -->
-      <dd><%= meal.weight_tracker_user_id %></dd>
+      <dd>
+        <% if @meal.calorie_tracker_user.present? %>
+          <%= link_to meal.calorie_tracker_user, meal.calorie_tracker_user %>
+        <% end %>
+      </dd>
       <!-- Display weight_tracker_user_id end -->
 
       <dt>Date and time of meal</dt>

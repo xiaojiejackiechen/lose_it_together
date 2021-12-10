@@ -12,7 +12,11 @@
 
       <dt>Login</dt>
       <!-- Display login_id start -->
-      <dd><%= personal_trainer_profile.login_id %></dd>
+      <dd>
+        <% if @personal_trainer_profile.login.present? %>
+          <%= link_to personal_trainer_profile.login, personal_trainer_profile.login %>
+        <% end %>
+      </dd>
       <!-- Display login_id end -->
 
     </dl>

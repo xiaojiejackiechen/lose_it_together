@@ -12,7 +12,11 @@
 
       <dt>Login</dt>
       <!-- Display login_id start -->
-      <dd><%= nutritionist_profile.login_id %></dd>
+      <dd>
+        <% if @nutritionist_profile.login.present? %>
+          <%= link_to nutritionist_profile.login, nutritionist_profile.login %>
+        <% end %>
+      </dd>
       <!-- Display login_id end -->
 
     </dl>

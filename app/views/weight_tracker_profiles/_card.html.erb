@@ -29,17 +29,29 @@
 
       <dt>Associated personal trainer</dt>
       <!-- Display associated_personal_trainer_id start -->
-      <dd><%= weight_tracker_profile.associated_personal_trainer_id %></dd>
+      <dd>
+        <% if @weight_tracker_profile.dedicated_personal_trainer.present? %>
+          <%= link_to weight_tracker_profile.dedicated_personal_trainer, weight_tracker_profile.dedicated_personal_trainer %>
+        <% end %>
+      </dd>
       <!-- Display associated_personal_trainer_id end -->
 
       <dt>Associated nutritionist</dt>
       <!-- Display associated_nutritionist_id start -->
-      <dd><%= weight_tracker_profile.associated_nutritionist_id %></dd>
+      <dd>
+        <% if @weight_tracker_profile.nutritionist.present? %>
+          <%= link_to weight_tracker_profile.nutritionist, weight_tracker_profile.nutritionist %>
+        <% end %>
+      </dd>
       <!-- Display associated_nutritionist_id end -->
 
       <dt>Login</dt>
       <!-- Display login_id start -->
-      <dd><%= weight_tracker_profile.login_id %></dd>
+      <dd>
+        <% if @weight_tracker_profile.login.present? %>
+          <%= link_to weight_tracker_profile.login, weight_tracker_profile.login %>
+        <% end %>
+      </dd>
       <!-- Display login_id end -->
 
     </dl>

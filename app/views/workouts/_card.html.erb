@@ -12,7 +12,11 @@
 
       <dt>Weight tracker user</dt>
       <!-- Display weight_tracker_user_id start -->
-      <dd><%= workout.weight_tracker_user_id %></dd>
+      <dd>
+        <% if @workout.weight_tracker_user.present? %>
+          <%= link_to workout.weight_tracker_user, workout.weight_tracker_user %>
+        <% end %>
+      </dd>
       <!-- Display weight_tracker_user_id end -->
 
     </dl>

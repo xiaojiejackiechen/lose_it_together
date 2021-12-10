@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Weight tracker user</dt>
       <!-- Display weight_tracker_user_id start -->
-      <dd><%= weight_daily_entry.weight_tracker_user_id %></dd>
+      <dd>
+        <% if @weight_daily_entry.weight_tracker_user.present? %>
+          <%= link_to weight_daily_entry.weight_tracker_user, weight_daily_entry.weight_tracker_user %>
+        <% end %>
+      </dd>
       <!-- Display weight_tracker_user_id end -->
 
       <dt>Weight in lb</dt>
