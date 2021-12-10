@@ -128,7 +128,14 @@
               <% end %>
             <% end %>
 
-   
+            <%= f.label :user_type %>
+            <%= f.select :user_type, options_for_select(UserLogin.user_types.keys), {}, class: "form-control" %>
+            <% if user_type_was_invalid %>
+              <% user_login.errors.full_messages_for(:user_type).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
             <% end %>
           </div>
           <%= f.button class: "btn btn-outline-primary btn-block" %>
