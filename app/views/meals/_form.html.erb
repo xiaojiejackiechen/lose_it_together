@@ -68,7 +68,7 @@
 
     <%= f.label :meal_type %>
     <!-- Input for meal_type start -->
-    <%= f.number_field :meal_type, class: meal_type_class, placeholder: "Enter meal type" %>
+    <%= f.select :meal_type, options_for_select(Meal.meal_types.keys), {}, class: "form-control" %>
     <!-- Input for meal_type end -->
     <% if meal_type_was_invalid %>
       <% meal.errors.full_messages_for(:meal_type).each do |message| %>

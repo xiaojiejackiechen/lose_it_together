@@ -22,7 +22,7 @@
     <%= f.label :meal_type %>
 
     <!-- Input for meal_type start -->
-    <%= f.text_field :meal_type, class: "form-control" %>
+    <%= f.select :meal_type, options_for_select(Meal.meal_types.keys), {}, class: "form-control" %>
     <!-- Input for meal_type end -->
   </div>
   <!-- Label and input for meal_type end -->
