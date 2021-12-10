@@ -7,6 +7,9 @@ class WorkoutResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :weight_tracker_user,
+             resource: WeightTrackerProfileResource
+
   has_many   :workout_comments
 
   has_many   :exercises
