@@ -8,6 +8,10 @@ class WorkoutCommentResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :user,
+             resource: UserLoginResource,
+             foreign_key: :commenter_user_id
+
   belongs_to :workout
 
   # Indirect associations
