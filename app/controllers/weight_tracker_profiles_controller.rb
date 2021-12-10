@@ -1,4 +1,6 @@
 class WeightTrackerProfilesController < ApplicationController
+  before_action :current_user_login_must_be_weight_tracker_profile_login, only: [:edit, :update, :destroy] 
+
   before_action :set_weight_tracker_profile, only: [:show, :edit, :update, :destroy]
 
   # GET /weight_tracker_profiles
@@ -60,6 +62,14 @@ class WeightTrackerProfilesController < ApplicationController
 
 
   private
+
+  def current_user_login_must_be_weight_tracker_profile_login
+    set_weight_tracker_profile
+    unless current_user_login == @weight_tracker_profile.login
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_weight_tracker_profile
       @weight_tracker_profile = WeightTrackerProfile.find(params[:id])

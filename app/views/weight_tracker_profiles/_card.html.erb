@@ -51,16 +51,20 @@
 
       <!-- Edit link weight_tracker_profile start -->
       <div class="col">
-        <%= link_to edit_weight_tracker_profile_url(weight_tracker_profile), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user_login == @weight_tracker_profile.login %>
+          <%= link_to edit_weight_tracker_profile_url(weight_tracker_profile), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link weight_tracker_profile end -->
 
       <!-- Delete link weight_tracker_profile start -->
       <div class="col">
-        <%= link_to weight_tracker_profile, method: :delete, data: { confirm: "Do you really want to delete this weight_tracker_profile?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user_login == @weight_tracker_profile.login %>
+          <%= link_to weight_tracker_profile, method: :delete, data: { confirm: "Do you really want to delete this weight_tracker_profile?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link weight_tracker_profile end -->
