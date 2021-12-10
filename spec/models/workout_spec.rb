@@ -4,6 +4,8 @@ RSpec.describe Workout, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:workout_comments) }
+
     it { should have_many(:exercises) }
 
     end
