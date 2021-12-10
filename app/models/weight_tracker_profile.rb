@@ -1,4 +1,6 @@
 class WeightTrackerProfile < ApplicationRecord
+  mount_uploader :profile_pic, ProfilePicUploader
+
   # Direct associations
 
   belongs_to :nutritionist,

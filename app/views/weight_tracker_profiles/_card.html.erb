@@ -22,7 +22,9 @@
 
       <dt>Profile pic</dt>
       <!-- Display profile_pic start -->
-      <dd><%= weight_tracker_profile.profile_pic %></dd>
+      <dd>
+        <%= cl_image_tag @weight_tracker_profile.profile_pic, class: "img-fluid" %>
+      </dd>
       <!-- Display profile_pic end -->
 
       <dt>Associated personal trainer</dt>
