@@ -3,7 +3,8 @@ class WeightDailyEntriesController < ApplicationController
 
   # GET /weight_daily_entries
   def index
-    @weight_daily_entries = WeightDailyEntry.page(params[:page]).per(10)
+    @q = WeightDailyEntry.ransack(params[:q])
+    @weight_daily_entries = @q.result(:distinct => true).includes(:weight_tracker_user).page(params[:page]).per(10)
   end
 
   # GET /weight_daily_entries/1

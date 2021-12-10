@@ -3,7 +3,8 @@ class ExercisesController < ApplicationController
 
   # GET /exercises
   def index
-    @exercises = Exercise.page(params[:page]).per(10)
+    @q = Exercise.ransack(params[:q])
+    @exercises = @q.result(:distinct => true).includes(:workout, :user).page(params[:page]).per(10)
   end
 
   # GET /exercises/1

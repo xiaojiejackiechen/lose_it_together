@@ -3,7 +3,8 @@ class PersonalTrainerProfilesController < ApplicationController
 
   # GET /personal_trainer_profiles
   def index
-    @personal_trainer_profiles = PersonalTrainerProfile.page(params[:page]).per(10)
+    @q = PersonalTrainerProfile.ransack(params[:q])
+    @personal_trainer_profiles = @q.result(:distinct => true).includes(:weight_tracker_profiles, :login).page(params[:page]).per(10)
   end
 
   # GET /personal_trainer_profiles/1

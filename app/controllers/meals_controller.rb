@@ -3,7 +3,8 @@ class MealsController < ApplicationController
 
   # GET /meals
   def index
-    @meals = Meal.page(params[:page]).per(10)
+    @q = Meal.ransack(params[:q])
+    @meals = @q.result(:distinct => true).includes(:foods, :meal_comments, :calorie_tracker_user).page(params[:page]).per(10)
   end
 
   # GET /meals/1

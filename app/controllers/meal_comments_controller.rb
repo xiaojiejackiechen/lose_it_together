@@ -3,7 +3,8 @@ class MealCommentsController < ApplicationController
 
   # GET /meal_comments
   def index
-    @meal_comments = MealComment.page(params[:page]).per(10)
+    @q = MealComment.ransack(params[:q])
+    @meal_comments = @q.result(:distinct => true).includes(:meal, :user).page(params[:page]).per(10)
   end
 
   # GET /meal_comments/1

@@ -1,0 +1,227 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "weight_tracker_profiles_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :target_weight_in_lb, "Target weight in lb" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :target_weight_in_lb_gteq, :class => "form-control", :placeholder => "Target weight in lb greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :target_weight_in_lb_lteq, :class => "form-control", :placeholder => "Target weight in lb less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :target_daily_calories, "Target daily calories" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :target_daily_calories_gteq, :class => "form-control", :placeholder => "Target daily calories greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :target_daily_calories_lteq, :class => "form-control", :placeholder => "Target daily calories less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :username_cont, "Username contains" %>
+    <%= f.text_field :username_cont, :class => "form-control", :placeholder => "Username contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <div class="form-group">
+    <%= f.label :created_at, "Meal Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='mealsgteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :meals_created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Meal Created at greater than or equal to", :data => {:target => '#mealsgteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#mealsgteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='mealslteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :meals_created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Meal Created at less than or equal to", :data => {:target => '#mealslteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#mealslteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#mealsgteqcreated_atPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#mealslteqcreated_atPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#mealsgteqcreated_atPicker').on("dp.change", function (e) {
+              $('#mealslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#mealslteqcreated_atPicker').on("dp.change", function (e) {
+              $('#mealsgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Workout Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='workoutsgteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :workouts_created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Workout Created at greater than or equal to", :data => {:target => '#workoutsgteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#workoutsgteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='workoutslteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :workouts_created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Workout Created at less than or equal to", :data => {:target => '#workoutslteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#workoutslteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#workoutsgteqcreated_atPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#workoutslteqcreated_atPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#workoutsgteqcreated_atPicker').on("dp.change", function (e) {
+              $('#workoutslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#workoutslteqcreated_atPicker').on("dp.change", function (e) {
+              $('#workoutsgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :rating, "PersonalTrainerProfile Rating" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :dedicated_personal_trainer_rating_gteq, :class => "form-control", :placeholder => "PersonalTrainerProfile Rating greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :dedicated_personal_trainer_rating_lteq, :class => "form-control", :placeholder => "PersonalTrainerProfile Rating less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "UserLogin Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='logingteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :login_created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "UserLogin Created at greater than or equal to", :data => {:target => '#logingteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#logingteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='loginlteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :login_created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "UserLogin Created at less than or equal to", :data => {:target => '#loginlteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#loginlteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#logingteqcreated_atPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#loginlteqcreated_atPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#logingteqcreated_atPicker').on("dp.change", function (e) {
+              $('#loginlteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#loginlteqcreated_atPicker').on("dp.change", function (e) {
+              $('#logingteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :rating, "NutritionistProfile Rating" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :nutritionist_rating_gteq, :class => "form-control", :placeholder => "NutritionistProfile Rating greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :nutritionist_rating_lteq, :class => "form-control", :placeholder => "NutritionistProfile Rating less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/weight_tracker_profiles" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#weight_tracker_profiles_filters">
+  Show filters
+</a>

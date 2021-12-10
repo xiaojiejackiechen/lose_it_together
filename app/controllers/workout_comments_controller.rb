@@ -3,7 +3,8 @@ class WorkoutCommentsController < ApplicationController
 
   # GET /workout_comments
   def index
-    @workout_comments = WorkoutComment.page(params[:page]).per(10)
+    @q = WorkoutComment.ransack(params[:q])
+    @workout_comments = @q.result(:distinct => true).includes(:workout, :user).page(params[:page]).per(10)
   end
 
   # GET /workout_comments/1

@@ -5,7 +5,8 @@ class WeightTrackerProfilesController < ApplicationController
 
   # GET /weight_tracker_profiles
   def index
-    @weight_tracker_profiles = WeightTrackerProfile.page(params[:page]).per(10)
+    @q = WeightTrackerProfile.ransack(params[:q])
+    @weight_tracker_profiles = @q.result(:distinct => true).includes(:meals, :weight_daily_entries, :workouts, :dedicated_personal_trainer, :login, :nutritionist, :exercises, :foods).page(params[:page]).per(10)
   end
 
   # GET /weight_tracker_profiles/1
