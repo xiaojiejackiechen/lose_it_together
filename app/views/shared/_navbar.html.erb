@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      LoseItTogether
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsible-nav-links" aria-controls="collapsible-nav-links" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsible-nav-links">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Resources
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a href="/meal_comments" class="dropdown-item">
+              Meal Comments
+            </a>
+            <a href="/workout_comments" class="dropdown-item">
+              Workout Comments
+            </a>
+            <a href="/nutritionist_profiles" class="dropdown-item">
+              Nutritionist Profiles
+            </a>
+            <a href="/user_logins" class="dropdown-item">
+              User Logins
+            </a>
+            <a href="/personal_trainer_profiles" class="dropdown-item">
+              Personal Trainer Profiles
+            </a>
+            <a href="/exercises" class="dropdown-item">
+              Exercises
+            </a>
+            <a href="/weight_tracker_profiles" class="dropdown-item">
+              Weight Tracker Profiles
+            </a>
+            <a href="/weight_daily_entries" class="dropdown-item">
+              Weight Daily Entries
+            </a>
+            <a href="/workouts" class="dropdown-item">
+              Workouts
+            </a>
+            <a href="/foods" class="dropdown-item">
+              Foods
+            </a>
+            <a href="/meals" class="dropdown-item">
+              Meals
+            </a>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <% if current_user_login.blank? %>
+          <li class="nav-item">
+            <a href="/user_logins/sign_in" class="nav-link">
+              Sign in
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/user_logins/sign_up" class="nav-link">
+              Sign up
+            </a>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a href="/user_logins/edit" class="nav-link">
+              Edit profile
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/user_logins/sign_out" data-method="delete" class="nav-link">
+              Sign out
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div> <!-- .navbar-collapse -->
+  </div> <!-- .container -->
+</nav>
