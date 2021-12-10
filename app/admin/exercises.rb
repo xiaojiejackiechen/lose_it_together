@@ -1,5 +1,7 @@
 ActiveAdmin.register Exercise do
 
+ permit_params :workout_id, :excercise_id, :number_of_rep, :calorie_burned
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
