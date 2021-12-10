@@ -9,6 +9,9 @@ class UserLoginResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :weight_tracker_profiles,
+             foreign_key: :login_id
+
   # Indirect associations
 
 end

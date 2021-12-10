@@ -12,6 +12,9 @@ class WeightTrackerProfileResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :login,
+             resource: UserLoginResource
+
   belongs_to :dedicated_personal_trainer,
              resource: PersonalTrainerProfileResource,
              foreign_key: :associated_personal_trainer_id
