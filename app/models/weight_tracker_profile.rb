@@ -1,6 +1,9 @@
 class WeightTrackerProfile < ApplicationRecord
   # Direct associations
 
+  belongs_to :login,
+             :class_name => "UserLogin"
+
   belongs_to :dedicated_personal_trainer,
              :class_name => "PersonalTrainerProfile",
              :foreign_key => "associated_personal_trainer_id"

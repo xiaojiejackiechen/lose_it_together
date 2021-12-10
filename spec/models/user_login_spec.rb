@@ -4,6 +4,8 @@ RSpec.describe UserLogin, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:weight_tracker_profiles) }
+
     end
 
     describe "InDirect Associations" do
