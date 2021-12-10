@@ -63,7 +63,7 @@
     <%= f.label :login_id %>
 
     <!-- Input for login_id start -->
-    <%= f.text_field :login_id, class: "form-control" %>
+    <%= f.collection_select :login_id, UserLogin.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for login_id end -->
   </div>
   <!-- Label and input for login_id end -->

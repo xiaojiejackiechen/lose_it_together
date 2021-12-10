@@ -172,7 +172,7 @@
 
     <%= f.label :login_id %>
     <!-- Input for login_id start -->
-    <%= f.number_field :login_id, class: login_class, placeholder: "Enter login" %>
+    <%= f.collection_select :login_id, UserLogin.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for login_id end -->
     <% if login_was_invalid %>
       <% weight_tracker_profile.errors.full_messages_for(:login).each do |message| %>
