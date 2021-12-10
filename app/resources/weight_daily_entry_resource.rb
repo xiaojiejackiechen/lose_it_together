@@ -8,6 +8,9 @@ class WeightDailyEntryResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :weight_tracker_user,
+             resource: WeightTrackerProfileResource
+
   # Indirect associations
 
 end
