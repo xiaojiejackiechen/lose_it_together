@@ -1,6 +1,10 @@
 class WeightTrackerProfile < ApplicationRecord
   # Direct associations
 
+  belongs_to :dedicated_personal_trainer,
+             :class_name => "PersonalTrainerProfile",
+             :foreign_key => "associated_personal_trainer_id"
+
   has_many   :workouts,
              :foreign_key => "weight_tracker_user_id",
              :dependent => :destroy
