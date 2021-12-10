@@ -9,6 +9,9 @@ class UserLoginResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :meal_comments,
+             foreign_key: :commenter_user_id
+
   has_many   :workout_comments,
              foreign_key: :commenter_user_id
 

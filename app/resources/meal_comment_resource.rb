@@ -8,6 +8,10 @@ class MealCommentResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :user,
+             resource: UserLoginResource,
+             foreign_key: :commenter_user_id
+
   belongs_to :meal
 
   # Indirect associations
