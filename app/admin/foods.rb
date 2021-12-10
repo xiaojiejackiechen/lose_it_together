@@ -1,5 +1,7 @@
 ActiveAdmin.register Food do
 
+ permit_params :meal_id, :food_name, :number_of_gram_consumed, :calories_consumed
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
