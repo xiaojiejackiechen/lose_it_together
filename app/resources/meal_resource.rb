@@ -8,6 +8,8 @@ class MealResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :meal_comments
+
   has_many   :foods
 
   # Indirect associations

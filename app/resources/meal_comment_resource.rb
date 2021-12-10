@@ -8,6 +8,8 @@ class MealCommentResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :meal
+
   # Indirect associations
 
 end
