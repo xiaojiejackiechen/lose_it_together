@@ -1,7 +1,9 @@
 class UserLogin < ApplicationRecord
   enum user_type: {"weight_tracker"=>0, "personal_trainer"=>1, "nutritionist"=>2} 
 
-  # Direct associations
+  
+  include JwtToken
+# Direct associations
 
   has_many   :meal_comments,
              :foreign_key => "commenter_user_id",
