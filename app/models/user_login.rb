@@ -3,6 +3,10 @@ class UserLogin < ApplicationRecord
 
   # Direct associations
 
+  has_many   :workout_comments,
+             :foreign_key => "commenter_user_id",
+             :dependent => :destroy
+
   has_many   :nutritionist_profiles,
              :foreign_key => "login_id",
              :dependent => :destroy

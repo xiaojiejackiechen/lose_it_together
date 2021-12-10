@@ -1,6 +1,10 @@
 class WorkoutComment < ApplicationRecord
   # Direct associations
 
+  belongs_to :user,
+             :class_name => "UserLogin",
+             :foreign_key => "commenter_user_id"
+
   belongs_to :workout
 
   # Indirect associations
