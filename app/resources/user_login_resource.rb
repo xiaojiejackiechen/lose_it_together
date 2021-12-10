@@ -5,7 +5,6 @@ class UserLoginResource < ApplicationResource
   attribute :email, :string
   attribute :password, :string
   attribute :username, :string
-  attribute :user_type, :string_enum, allow: UserLogin.user_types.keys
 
   # Direct associations
 

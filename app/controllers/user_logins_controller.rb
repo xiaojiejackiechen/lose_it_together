@@ -50,6 +50,6 @@ class UserLoginsController < ApplicationController
   end
 
   def user_login_params
-    params.require(:user_login).permit(:username, :user_type)
+    params.require(:user_login).permit(:username)
   end
 end

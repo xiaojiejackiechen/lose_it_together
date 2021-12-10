@@ -1,7 +1,4 @@
 class UserLogin < ApplicationRecord
-  enum user_type: { "weight_tracker" => 0, "personal_trainer" => 1,
-                    "nutritionist" => 2 }
-
   include JwtToken
   # Direct associations
 
