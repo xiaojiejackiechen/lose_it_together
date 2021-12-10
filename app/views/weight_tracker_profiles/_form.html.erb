@@ -146,7 +146,7 @@
 
     <%= f.label :associated_nutritionist_id %>
     <!-- Input for associated_nutritionist_id start -->
-    <%= f.number_field :associated_nutritionist_id, class: associated_nutritionist_class, placeholder: "Enter associated nutritionist" %>
+    <%= f.collection_select :associated_nutritionist_id, NutritionistProfile.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for associated_nutritionist_id end -->
     <% if associated_nutritionist_was_invalid %>
       <% weight_tracker_profile.errors.full_messages_for(:associated_nutritionist).each do |message| %>

@@ -57,7 +57,7 @@
     <%= f.label :associated_nutritionist_id %>
 
     <!-- Input for associated_nutritionist_id start -->
-    <%= f.text_field :associated_nutritionist_id, class: "form-control" %>
+    <%= f.collection_select :associated_nutritionist_id, NutritionistProfile.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for associated_nutritionist_id end -->
   </div>
   <!-- Label and input for associated_nutritionist_id end -->
