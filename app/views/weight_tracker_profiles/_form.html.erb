@@ -1,0 +1,187 @@
+<% was_validated = weight_tracker_profile.errors.any? %>
+
+<%= form_with(model: weight_tracker_profile, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for username start -->
+  <div class="form-group">
+    <% username_class = "form-control" %>
+    <% username_was_invalid = weight_tracker_profile.errors.include?(:username) %>
+
+    <% if was_validated %>
+      <% if username_was_invalid %>
+        <% username_class << " is-invalid" %>
+      <% else %>
+        <% username_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :username %>
+    <!-- Input for username start -->
+    <%= f.text_field :username, class: username_class, placeholder: "Enter username" %>
+    <!-- Input for username end -->
+    <% if username_was_invalid %>
+      <% weight_tracker_profile.errors.full_messages_for(:username).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for username end -->
+  <!-- Label and input for target_daily_calories start -->
+  <div class="form-group">
+    <% target_daily_calory_class = "form-control" %>
+    <% target_daily_calory_was_invalid = weight_tracker_profile.errors.include?(:target_daily_calory) %>
+
+    <% if was_validated %>
+      <% if target_daily_calory_was_invalid %>
+        <% target_daily_calory_class << " is-invalid" %>
+      <% else %>
+        <% target_daily_calory_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :target_daily_calories %>
+    <!-- Input for target_daily_calories start -->
+    <%= f.number_field :target_daily_calories, class: target_daily_calory_class, placeholder: "Enter target daily calory" %>
+    <!-- Input for target_daily_calories end -->
+    <% if target_daily_calory_was_invalid %>
+      <% weight_tracker_profile.errors.full_messages_for(:target_daily_calory).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for target_daily_calories end -->
+  <!-- Label and input for target_weight_in_lb start -->
+  <div class="form-group">
+    <% target_weight_in_lb_class = "form-control" %>
+    <% target_weight_in_lb_was_invalid = weight_tracker_profile.errors.include?(:target_weight_in_lb) %>
+
+    <% if was_validated %>
+      <% if target_weight_in_lb_was_invalid %>
+        <% target_weight_in_lb_class << " is-invalid" %>
+      <% else %>
+        <% target_weight_in_lb_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :target_weight_in_lb %>
+    <!-- Input for target_weight_in_lb start -->
+    <%= f.number_field :target_weight_in_lb, class: target_weight_in_lb_class, placeholder: "Enter target weight in lb" %>
+    <!-- Input for target_weight_in_lb end -->
+    <% if target_weight_in_lb_was_invalid %>
+      <% weight_tracker_profile.errors.full_messages_for(:target_weight_in_lb).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for target_weight_in_lb end -->
+  <!-- Label and input for profile_pic start -->
+  <div class="form-group">
+    <% profile_pic_class = "form-control" %>
+    <% profile_pic_was_invalid = weight_tracker_profile.errors.include?(:profile_pic) %>
+
+    <% if was_validated %>
+      <% if profile_pic_was_invalid %>
+        <% profile_pic_class << " is-invalid" %>
+      <% else %>
+        <% profile_pic_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :profile_pic %>
+    <!-- Input for profile_pic start -->
+    <%= f.text_field :profile_pic, class: profile_pic_class, placeholder: "Enter profile pic" %>
+    <!-- Input for profile_pic end -->
+    <% if profile_pic_was_invalid %>
+      <% weight_tracker_profile.errors.full_messages_for(:profile_pic).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for profile_pic end -->
+  <!-- Label and input for associated_personal_trainer_id start -->
+  <div class="form-group">
+    <% associated_personal_trainer_class = "form-control" %>
+    <% associated_personal_trainer_was_invalid = weight_tracker_profile.errors.include?(:associated_personal_trainer) %>
+
+    <% if was_validated %>
+      <% if associated_personal_trainer_was_invalid %>
+        <% associated_personal_trainer_class << " is-invalid" %>
+      <% else %>
+        <% associated_personal_trainer_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :associated_personal_trainer_id %>
+    <!-- Input for associated_personal_trainer_id start -->
+    <%= f.number_field :associated_personal_trainer_id, class: associated_personal_trainer_class, placeholder: "Enter associated personal trainer" %>
+    <!-- Input for associated_personal_trainer_id end -->
+    <% if associated_personal_trainer_was_invalid %>
+      <% weight_tracker_profile.errors.full_messages_for(:associated_personal_trainer).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for associated_personal_trainer_id end -->
+  <!-- Label and input for associated_nutritionist_id start -->
+  <div class="form-group">
+    <% associated_nutritionist_class = "form-control" %>
+    <% associated_nutritionist_was_invalid = weight_tracker_profile.errors.include?(:associated_nutritionist) %>
+
+    <% if was_validated %>
+      <% if associated_nutritionist_was_invalid %>
+        <% associated_nutritionist_class << " is-invalid" %>
+      <% else %>
+        <% associated_nutritionist_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :associated_nutritionist_id %>
+    <!-- Input for associated_nutritionist_id start -->
+    <%= f.number_field :associated_nutritionist_id, class: associated_nutritionist_class, placeholder: "Enter associated nutritionist" %>
+    <!-- Input for associated_nutritionist_id end -->
+    <% if associated_nutritionist_was_invalid %>
+      <% weight_tracker_profile.errors.full_messages_for(:associated_nutritionist).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for associated_nutritionist_id end -->
+  <!-- Label and input for login_id start -->
+  <div class="form-group">
+    <% login_class = "form-control" %>
+    <% login_was_invalid = weight_tracker_profile.errors.include?(:login) %>
+
+    <% if was_validated %>
+      <% if login_was_invalid %>
+        <% login_class << " is-invalid" %>
+      <% else %>
+        <% login_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :login_id %>
+    <!-- Input for login_id start -->
+    <%= f.number_field :login_id, class: login_class, placeholder: "Enter login" %>
+    <!-- Input for login_id end -->
+    <% if login_was_invalid %>
+      <% weight_tracker_profile.errors.full_messages_for(:login).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for login_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

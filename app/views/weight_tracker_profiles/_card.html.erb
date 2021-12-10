@@ -1,0 +1,71 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Weight Tracker Profile #<%= weight_tracker_profile.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Username</dt>
+      <!-- Display username start -->
+      <dd><%= weight_tracker_profile.username %></dd>
+      <!-- Display username end -->
+
+      <dt>Target daily calories</dt>
+      <!-- Display target_daily_calories start -->
+      <dd><%= weight_tracker_profile.target_daily_calories %></dd>
+      <!-- Display target_daily_calories end -->
+
+      <dt>Target weight in lb</dt>
+      <!-- Display target_weight_in_lb start -->
+      <dd><%= weight_tracker_profile.target_weight_in_lb %></dd>
+      <!-- Display target_weight_in_lb end -->
+
+      <dt>Profile pic</dt>
+      <!-- Display profile_pic start -->
+      <dd><%= weight_tracker_profile.profile_pic %></dd>
+      <!-- Display profile_pic end -->
+
+      <dt>Associated personal trainer</dt>
+      <!-- Display associated_personal_trainer_id start -->
+      <dd><%= weight_tracker_profile.associated_personal_trainer_id %></dd>
+      <!-- Display associated_personal_trainer_id end -->
+
+      <dt>Associated nutritionist</dt>
+      <!-- Display associated_nutritionist_id start -->
+      <dd><%= weight_tracker_profile.associated_nutritionist_id %></dd>
+      <!-- Display associated_nutritionist_id end -->
+
+      <dt>Login</dt>
+      <!-- Display login_id start -->
+      <dd><%= weight_tracker_profile.login_id %></dd>
+      <!-- Display login_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back weight_tracker_profile, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link weight_tracker_profile start -->
+      <div class="col">
+        <%= link_to edit_weight_tracker_profile_url(weight_tracker_profile), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link weight_tracker_profile end -->
+
+      <!-- Delete link weight_tracker_profile start -->
+      <div class="col">
+        <%= link_to weight_tracker_profile, method: :delete, data: { confirm: "Do you really want to delete this weight_tracker_profile?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link weight_tracker_profile end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(weight_tracker_profile.updated_at) %> ago
+  </div>
+</div>
