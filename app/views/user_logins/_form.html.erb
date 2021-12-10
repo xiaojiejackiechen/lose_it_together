@@ -42,7 +42,7 @@
 
     <%= f.label :user_type %>
     <!-- Input for user_type start -->
-    <%= f.number_field :user_type, class: user_type_class, placeholder: "Enter user type" %>
+    <%= f.select :user_type, options_for_select(UserLogin.user_types.keys), {}, class: "form-control" %>
     <!-- Input for user_type end -->
     <% if user_type_was_invalid %>
       <% user_login.errors.full_messages_for(:user_type).each do |message| %>
