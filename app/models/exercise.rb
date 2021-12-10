@@ -5,6 +5,10 @@ class Exercise < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :user,
+             :through => :workout,
+             :source => :weight_tracker_user
+
   # Validations
 
   # Scopes
