@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Food #<%= food.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Meal</dt>
+      <!-- Display meal_id start -->
+      <dd><%= food.meal_id %></dd>
+      <!-- Display meal_id end -->
+
+      <dt>Food name</dt>
+      <!-- Display food_name start -->
+      <dd><%= food.food_name %></dd>
+      <!-- Display food_name end -->
+
+      <dt>Number of gram consumed</dt>
+      <!-- Display number_of_gram_consumed start -->
+      <dd><%= food.number_of_gram_consumed %></dd>
+      <!-- Display number_of_gram_consumed end -->
+
+      <dt>Calories consumed</dt>
+      <!-- Display calories_consumed start -->
+      <dd><%= food.calories_consumed %></dd>
+      <!-- Display calories_consumed end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back food, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link food start -->
+      <div class="col">
+        <%= link_to edit_food_url(food), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link food end -->
+
+      <!-- Delete link food start -->
+      <div class="col">
+        <%= link_to food, method: :delete, data: { confirm: "Do you really want to delete this food?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link food end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(food.updated_at) %> ago
+  </div>
+</div>
