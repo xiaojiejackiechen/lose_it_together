@@ -3,7 +3,7 @@ class WeightDailyEntriesController < ApplicationController
 
   # GET /weight_daily_entries
   def index
-    @weight_daily_entries = WeightDailyEntry.all
+    @weight_daily_entries = WeightDailyEntry.page(params[:page]).per(10)
   end
 
   # GET /weight_daily_entries/1

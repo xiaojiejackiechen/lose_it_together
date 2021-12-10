@@ -3,7 +3,7 @@ class MealCommentsController < ApplicationController
 
   # GET /meal_comments
   def index
-    @meal_comments = MealComment.all
+    @meal_comments = MealComment.page(params[:page]).per(10)
   end
 
   # GET /meal_comments/1

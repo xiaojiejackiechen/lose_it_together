@@ -3,7 +3,7 @@ class NutritionistProfilesController < ApplicationController
 
   # GET /nutritionist_profiles
   def index
-    @nutritionist_profiles = NutritionistProfile.all
+    @nutritionist_profiles = NutritionistProfile.page(params[:page]).per(10)
   end
 
   # GET /nutritionist_profiles/1

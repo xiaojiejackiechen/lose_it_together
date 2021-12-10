@@ -34,6 +34,10 @@
       <div class="list-group list-group-flush">
         <%= render collection: @weight_tracker_profiles, partial: "list_item", as: :weight_tracker_profile %>
       </div>
+      <div class="card-footer d-flex justify-content-center">
+        <%= paginate @weight_tracker_profiles, theme: 'twitter-bootstrap-4' %>
+      </div>
+
     </div>
   </div>
 </div>

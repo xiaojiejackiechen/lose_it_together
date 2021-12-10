@@ -3,7 +3,7 @@ class WorkoutCommentsController < ApplicationController
 
   # GET /workout_comments
   def index
-    @workout_comments = WorkoutComment.all
+    @workout_comments = WorkoutComment.page(params[:page]).per(10)
   end
 
   # GET /workout_comments/1
