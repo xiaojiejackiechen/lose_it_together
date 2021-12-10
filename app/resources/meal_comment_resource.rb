@@ -15,5 +15,4 @@ class MealCommentResource < ApplicationResource
   belongs_to :meal
 
   # Indirect associations
-
 end

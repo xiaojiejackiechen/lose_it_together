@@ -13,7 +13,7 @@ class Api::V1::WeightTrackerProfilesController < Api::V1::GraphitiController
     weight_tracker_profile = WeightTrackerProfileResource.build(params)
 
     if weight_tracker_profile.save
-      render jsonapi: weight_tracker_profile, status: 201
+      render jsonapi: weight_tracker_profile, status: :created
     else
       render jsonapi_errors: weight_tracker_profile
     end
@@ -33,7 +33,7 @@ class Api::V1::WeightTrackerProfilesController < Api::V1::GraphitiController
     weight_tracker_profile = WeightTrackerProfileResource.find(params)
 
     if weight_tracker_profile.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: weight_tracker_profile
     end

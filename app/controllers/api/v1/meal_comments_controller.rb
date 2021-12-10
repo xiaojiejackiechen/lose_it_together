@@ -13,7 +13,7 @@ class Api::V1::MealCommentsController < Api::V1::GraphitiController
     meal_comment = MealCommentResource.build(params)
 
     if meal_comment.save
-      render jsonapi: meal_comment, status: 201
+      render jsonapi: meal_comment, status: :created
     else
       render jsonapi_errors: meal_comment
     end
@@ -33,7 +33,7 @@ class Api::V1::MealCommentsController < Api::V1::GraphitiController
     meal_comment = MealCommentResource.find(params)
 
     if meal_comment.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: meal_comment
     end

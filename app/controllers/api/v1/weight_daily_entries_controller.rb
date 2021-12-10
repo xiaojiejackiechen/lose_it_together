@@ -13,7 +13,7 @@ class Api::V1::WeightDailyEntriesController < Api::V1::GraphitiController
     weight_daily_entry = WeightDailyEntryResource.build(params)
 
     if weight_daily_entry.save
-      render jsonapi: weight_daily_entry, status: 201
+      render jsonapi: weight_daily_entry, status: :created
     else
       render jsonapi_errors: weight_daily_entry
     end
@@ -33,7 +33,7 @@ class Api::V1::WeightDailyEntriesController < Api::V1::GraphitiController
     weight_daily_entry = WeightDailyEntryResource.find(params)
 
     if weight_daily_entry.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: weight_daily_entry
     end

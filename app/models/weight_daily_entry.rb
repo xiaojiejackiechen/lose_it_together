@@ -2,7 +2,7 @@ class WeightDailyEntry < ApplicationRecord
   # Direct associations
 
   belongs_to :weight_tracker_user,
-             :class_name => "WeightTrackerProfile"
+             class_name: "WeightTrackerProfile"
 
   # Indirect associations
 
@@ -13,5 +13,4 @@ class WeightDailyEntry < ApplicationRecord
   def to_s
     weight_tracker_user.to_s
   end
-
 end

@@ -49,5 +49,4 @@ class WeightTrackerProfileResource < ApplicationResource
       end
     end
   end
-
 end

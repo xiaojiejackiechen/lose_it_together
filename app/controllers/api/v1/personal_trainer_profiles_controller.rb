@@ -13,7 +13,7 @@ class Api::V1::PersonalTrainerProfilesController < Api::V1::GraphitiController
     personal_trainer_profile = PersonalTrainerProfileResource.build(params)
 
     if personal_trainer_profile.save
-      render jsonapi: personal_trainer_profile, status: 201
+      render jsonapi: personal_trainer_profile, status: :created
     else
       render jsonapi_errors: personal_trainer_profile
     end
@@ -33,7 +33,7 @@ class Api::V1::PersonalTrainerProfilesController < Api::V1::GraphitiController
     personal_trainer_profile = PersonalTrainerProfileResource.find(params)
 
     if personal_trainer_profile.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: personal_trainer_profile
     end

@@ -13,7 +13,7 @@ class Api::V1::NutritionistProfilesController < Api::V1::GraphitiController
     nutritionist_profile = NutritionistProfileResource.build(params)
 
     if nutritionist_profile.save
-      render jsonapi: nutritionist_profile, status: 201
+      render jsonapi: nutritionist_profile, status: :created
     else
       render jsonapi_errors: nutritionist_profile
     end
@@ -33,7 +33,7 @@ class Api::V1::NutritionistProfilesController < Api::V1::GraphitiController
     nutritionist_profile = NutritionistProfileResource.find(params)
 
     if nutritionist_profile.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: nutritionist_profile
     end

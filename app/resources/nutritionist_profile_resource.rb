@@ -15,5 +15,4 @@ class NutritionistProfileResource < ApplicationResource
              resource: UserLoginResource
 
   # Indirect associations
-
 end

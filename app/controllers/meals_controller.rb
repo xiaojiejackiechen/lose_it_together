@@ -1,10 +1,11 @@
 class MealsController < ApplicationController
-  before_action :set_meal, only: [:show, :edit, :update, :destroy]
+  before_action :set_meal, only: %i[show edit update destroy]
 
   # GET /meals
   def index
     @q = Meal.ransack(params[:q])
-    @meals = @q.result(:distinct => true).includes(:foods, :meal_comments, :calorie_tracker_user).page(params[:page]).per(10)
+    @meals = @q.result(distinct: true).includes(:foods, :meal_comments,
+                                                :calorie_tracker_user).page(params[:page]).per(10)
   end
 
   # GET /meals/1
@@ -19,17 +20,16 @@ class MealsController < ApplicationController
   end
 
   # GET /meals/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /meals
   def create
     @meal = Meal.new(meal_params)
 
     if @meal.save
-      message = 'Meal was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Meal was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @meal, notice: message
       end
@@ -41,7 +41,7 @@ class MealsController < ApplicationController
   # PATCH/PUT /meals/1
   def update
     if @meal.update(meal_params)
-      redirect_to @meal, notice: 'Meal was successfully updated.'
+      redirect_to @meal, notice: "Meal was successfully updated."
     else
       render :edit
     end
@@ -51,22 +51,23 @@ class MealsController < ApplicationController
   def destroy
     @meal.destroy
     message = "Meal was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to meals_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_meal
-      @meal = Meal.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def meal_params
-      params.require(:meal).permit(:weight_tracker_user_id, :date_and_time_of_meal, :meal_type)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_meal
+    @meal = Meal.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def meal_params
+    params.require(:meal).permit(:weight_tracker_user_id,
+                                 :date_and_time_of_meal, :meal_type)
+  end
 end

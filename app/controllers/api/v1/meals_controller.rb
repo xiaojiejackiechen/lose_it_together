@@ -13,7 +13,7 @@ class Api::V1::MealsController < Api::V1::GraphitiController
     meal = MealResource.build(params)
 
     if meal.save
-      render jsonapi: meal, status: 201
+      render jsonapi: meal, status: :created
     else
       render jsonapi_errors: meal
     end
@@ -33,7 +33,7 @@ class Api::V1::MealsController < Api::V1::GraphitiController
     meal = MealResource.find(params)
 
     if meal.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: meal
     end

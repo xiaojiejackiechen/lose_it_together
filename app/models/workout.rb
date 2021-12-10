@@ -2,13 +2,13 @@ class Workout < ApplicationRecord
   # Direct associations
 
   belongs_to :weight_tracker_user,
-             :class_name => "WeightTrackerProfile"
+             class_name: "WeightTrackerProfile"
 
   has_many   :workout_comments,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :exercises,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -19,5 +19,4 @@ class Workout < ApplicationRecord
   def to_s
     created_at
   end
-
 end

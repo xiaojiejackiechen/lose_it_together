@@ -13,7 +13,7 @@ class Api::V1::WorkoutCommentsController < Api::V1::GraphitiController
     workout_comment = WorkoutCommentResource.build(params)
 
     if workout_comment.save
-      render jsonapi: workout_comment, status: 201
+      render jsonapi: workout_comment, status: :created
     else
       render jsonapi_errors: workout_comment
     end
@@ -33,7 +33,7 @@ class Api::V1::WorkoutCommentsController < Api::V1::GraphitiController
     workout_comment = WorkoutCommentResource.find(params)
 
     if workout_comment.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: workout_comment
     end

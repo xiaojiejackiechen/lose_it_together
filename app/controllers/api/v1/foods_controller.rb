@@ -13,7 +13,7 @@ class Api::V1::FoodsController < Api::V1::GraphitiController
     food = FoodResource.build(params)
 
     if food.save
-      render jsonapi: food, status: 201
+      render jsonapi: food, status: :created
     else
       render jsonapi_errors: food
     end
@@ -33,7 +33,7 @@ class Api::V1::FoodsController < Api::V1::GraphitiController
     food = FoodResource.find(params)
 
     if food.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: food
     end

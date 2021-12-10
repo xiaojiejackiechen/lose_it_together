@@ -6,8 +6,8 @@ class Food < ApplicationRecord
   # Indirect associations
 
   has_one    :user,
-             :through => :meal,
-             :source => :calorie_tracker_user
+             through: :meal,
+             source: :calorie_tracker_user
 
   # Validations
 
@@ -16,5 +16,4 @@ class Food < ApplicationRecord
   def to_s
     meal.to_s
   end
-
 end

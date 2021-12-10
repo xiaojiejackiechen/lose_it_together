@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe WorkoutCommentResource, type: :resource do
-  describe 'creating' do
+  describe "creating" do
     let(:payload) do
       {
         data: {
-          type: 'workout_comments',
-          attributes: { }
-        }
+          type: "workout_comments",
+          attributes: {},
+        },
       }
     end
 
@@ -15,23 +15,24 @@ RSpec.describe WorkoutCommentResource, type: :resource do
       WorkoutCommentResource.build(payload)
     end
 
-    it 'works' do
-      expect {
-        expect(instance.save).to eq(true), instance.errors.full_messages.to_sentence
-      }.to change { WorkoutComment.count }.by(1)
+    it "works" do
+      expect do
+        expect(instance.save).to eq(true),
+                                 instance.errors.full_messages.to_sentence
+      end.to change { WorkoutComment.count }.by(1)
     end
   end
 
-  describe 'updating' do
+  describe "updating" do
     let!(:workout_comment) { create(:workout_comment) }
 
     let(:payload) do
       {
         data: {
           id: workout_comment.id.to_s,
-          type: 'workout_comments',
-          attributes: { } # Todo!
-        }
+          type: "workout_comments",
+          attributes: {}, # Todo!
+        },
       }
     end
 
@@ -39,25 +40,25 @@ RSpec.describe WorkoutCommentResource, type: :resource do
       WorkoutCommentResource.find(payload)
     end
 
-    xit 'works (add some attributes and enable this spec)' do
-      expect {
+    xit "works (add some attributes and enable this spec)" do
+      expect do
         expect(instance.update_attributes).to eq(true)
-      }.to change { workout_comment.reload.updated_at }
+      end.to change { workout_comment.reload.updated_at }
       # .and change { workout_comment.foo }.to('bar') <- example
     end
   end
 
-  describe 'destroying' do
+  describe "destroying" do
     let!(:workout_comment) { create(:workout_comment) }
 
     let(:instance) do
       WorkoutCommentResource.find(id: workout_comment.id)
     end
 
-    it 'works' do
-      expect {
+    it "works" do
+      expect do
         expect(instance.destroy).to eq(true)
-      }.to change { WorkoutComment.count }.by(-1)
+      end.to change { WorkoutComment.count }.by(-1)
     end
   end
 end

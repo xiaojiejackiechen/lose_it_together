@@ -17,5 +17,4 @@ class MealResource < ApplicationResource
   has_many   :foods
 
   # Indirect associations
-
 end

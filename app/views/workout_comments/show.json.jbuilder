@@ -1,1 +1,2 @@
-json.partial! "workout_comments/workout_comment", workout_comment: @workout_comment
+json.partial! "workout_comments/workout_comment",
+              workout_comment: @workout_comment

@@ -14,5 +14,4 @@ class PersonalTrainerProfileResource < ApplicationResource
              foreign_key: :associated_personal_trainer_id
 
   # Indirect associations
-
 end

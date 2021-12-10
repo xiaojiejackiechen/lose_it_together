@@ -12,5 +12,4 @@ class WeightDailyEntryResource < ApplicationResource
              resource: WeightTrackerProfileResource
 
   # Indirect associations
-
 end

@@ -1,15 +1,14 @@
 class WeightDailyEntriesController < ApplicationController
-  before_action :set_weight_daily_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_weight_daily_entry, only: %i[show edit update destroy]
 
   # GET /weight_daily_entries
   def index
     @q = WeightDailyEntry.ransack(params[:q])
-    @weight_daily_entries = @q.result(:distinct => true).includes(:weight_tracker_user).page(params[:page]).per(10)
+    @weight_daily_entries = @q.result(distinct: true).includes(:weight_tracker_user).page(params[:page]).per(10)
   end
 
   # GET /weight_daily_entries/1
-  def show
-  end
+  def show; end
 
   # GET /weight_daily_entries/new
   def new
@@ -17,17 +16,16 @@ class WeightDailyEntriesController < ApplicationController
   end
 
   # GET /weight_daily_entries/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /weight_daily_entries
   def create
     @weight_daily_entry = WeightDailyEntry.new(weight_daily_entry_params)
 
     if @weight_daily_entry.save
-      message = 'WeightDailyEntry was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "WeightDailyEntry was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @weight_daily_entry, notice: message
       end
@@ -39,7 +37,8 @@ class WeightDailyEntriesController < ApplicationController
   # PATCH/PUT /weight_daily_entries/1
   def update
     if @weight_daily_entry.update(weight_daily_entry_params)
-      redirect_to @weight_daily_entry, notice: 'Weight daily entry was successfully updated.'
+      redirect_to @weight_daily_entry,
+                  notice: "Weight daily entry was successfully updated."
     else
       render :edit
     end
@@ -49,22 +48,23 @@ class WeightDailyEntriesController < ApplicationController
   def destroy
     @weight_daily_entry.destroy
     message = "WeightDailyEntry was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to weight_daily_entries_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_weight_daily_entry
-      @weight_daily_entry = WeightDailyEntry.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def weight_daily_entry_params
-      params.require(:weight_daily_entry).permit(:weight_tracker_user_id, :weight_in_lb, :recorded_date)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_weight_daily_entry
+    @weight_daily_entry = WeightDailyEntry.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def weight_daily_entry_params
+    params.require(:weight_daily_entry).permit(:weight_tracker_user_id,
+                                               :weight_in_lb, :recorded_date)
+  end
 end

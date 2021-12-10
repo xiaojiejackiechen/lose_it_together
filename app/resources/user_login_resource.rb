@@ -25,5 +25,4 @@ class UserLoginResource < ApplicationResource
              foreign_key: :login_id
 
   # Indirect associations
-
 end

@@ -1,29 +1,29 @@
 class UserLogin < ApplicationRecord
-  enum user_type: {"weight_tracker"=>0, "personal_trainer"=>1, "nutritionist"=>2} 
+  enum user_type: { "weight_tracker" => 0, "personal_trainer" => 1,
+                    "nutritionist" => 2 }
 
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :meal_comments,
-             :foreign_key => "commenter_user_id",
-             :dependent => :destroy
+             foreign_key: "commenter_user_id",
+             dependent: :destroy
 
   has_many   :workout_comments,
-             :foreign_key => "commenter_user_id",
-             :dependent => :destroy
+             foreign_key: "commenter_user_id",
+             dependent: :destroy
 
   has_many   :nutritionist_profiles,
-             :foreign_key => "login_id",
-             :dependent => :destroy
+             foreign_key: "login_id",
+             dependent: :destroy
 
   has_many   :personal_trainer_profiles,
-             :foreign_key => "login_id",
-             :dependent => :destroy
+             foreign_key: "login_id",
+             dependent: :destroy
 
   has_many   :weight_tracker_profiles,
-             :foreign_key => "login_id",
-             :dependent => :destroy
+             foreign_key: "login_id",
+             dependent: :destroy
 
   # Indirect associations
 

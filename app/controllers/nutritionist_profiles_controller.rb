@@ -1,10 +1,12 @@
 class NutritionistProfilesController < ApplicationController
-  before_action :set_nutritionist_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_nutritionist_profile,
+                only: %i[show edit update destroy]
 
   # GET /nutritionist_profiles
   def index
     @q = NutritionistProfile.ransack(params[:q])
-    @nutritionist_profiles = @q.result(:distinct => true).includes(:login, :weight_tracker).page(params[:page]).per(10)
+    @nutritionist_profiles = @q.result(distinct: true).includes(:login,
+                                                                :weight_tracker).page(params[:page]).per(10)
   end
 
   # GET /nutritionist_profiles/1
@@ -18,17 +20,16 @@ class NutritionistProfilesController < ApplicationController
   end
 
   # GET /nutritionist_profiles/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /nutritionist_profiles
   def create
     @nutritionist_profile = NutritionistProfile.new(nutritionist_profile_params)
 
     if @nutritionist_profile.save
-      message = 'NutritionistProfile was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "NutritionistProfile was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @nutritionist_profile, notice: message
       end
@@ -40,7 +41,8 @@ class NutritionistProfilesController < ApplicationController
   # PATCH/PUT /nutritionist_profiles/1
   def update
     if @nutritionist_profile.update(nutritionist_profile_params)
-      redirect_to @nutritionist_profile, notice: 'Nutritionist profile was successfully updated.'
+      redirect_to @nutritionist_profile,
+                  notice: "Nutritionist profile was successfully updated."
     else
       render :edit
     end
@@ -50,22 +52,22 @@ class NutritionistProfilesController < ApplicationController
   def destroy
     @nutritionist_profile.destroy
     message = "NutritionistProfile was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to nutritionist_profiles_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_nutritionist_profile
-      @nutritionist_profile = NutritionistProfile.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def nutritionist_profile_params
-      params.require(:nutritionist_profile).permit(:rating, :login_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_nutritionist_profile
+    @nutritionist_profile = NutritionistProfile.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def nutritionist_profile_params
+    params.require(:nutritionist_profile).permit(:rating, :login_id)
+  end
 end

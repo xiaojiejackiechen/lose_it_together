@@ -2,8 +2,8 @@ class MealComment < ApplicationRecord
   # Direct associations
 
   belongs_to :user,
-             :class_name => "UserLogin",
-             :foreign_key => "commenter_user_id"
+             class_name: "UserLogin",
+             foreign_key: "commenter_user_id"
 
   belongs_to :meal
 
@@ -16,5 +16,4 @@ class MealComment < ApplicationRecord
   def to_s
     meal.to_s
   end
-
 end
