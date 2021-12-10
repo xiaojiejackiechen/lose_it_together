@@ -6,27 +6,21 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Workout</dt>
-      <!-- Display workout_id start -->
       <dd>
         <% if @workout_comment.workout.present? %>
           <%= link_to workout_comment.workout, workout_comment.workout %>
         <% end %>
       </dd>
-      <!-- Display workout_id end -->
 
       <dt>Commenter user</dt>
-      <!-- Display commenter_user_id start -->
       <dd>
         <% if @workout_comment.user.present? %>
           <%= link_to workout_comment.user, workout_comment.user %>
         <% end %>
       </dd>
-      <!-- Display commenter_user_id end -->
 
       <dt>Comment text</dt>
-      <!-- Display comment_text start -->
       <dd><%= workout_comment.comment_text %></dd>
-      <!-- Display comment_text end -->
 
     </dl>
 
@@ -35,21 +29,17 @@
         <%= link_to_show_or_back workout_comment, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link workout_comment start -->
       <div class="col">
         <%= link_to edit_workout_comment_url(workout_comment), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link workout_comment end -->
 
-      <!-- Delete link workout_comment start -->
       <div class="col">
         <%= link_to workout_comment, method: :delete, data: { confirm: "Do you really want to delete this workout_comment?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link workout_comment end -->
     </div>
   </div>
 

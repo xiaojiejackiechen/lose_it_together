@@ -6,27 +6,21 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Meal</dt>
-      <!-- Display meal_id start -->
       <dd>
         <% if @meal_comment.meal.present? %>
           <%= link_to meal_comment.meal, meal_comment.meal %>
         <% end %>
       </dd>
-      <!-- Display meal_id end -->
 
       <dt>Commenter user</dt>
-      <!-- Display commenter_user_id start -->
       <dd>
         <% if @meal_comment.user.present? %>
           <%= link_to meal_comment.user, meal_comment.user %>
         <% end %>
       </dd>
-      <!-- Display commenter_user_id end -->
 
       <dt>Comment text</dt>
-      <!-- Display comment_text start -->
       <dd><%= meal_comment.comment_text %></dd>
-      <!-- Display comment_text end -->
 
     </dl>
 
@@ -35,21 +29,17 @@
         <%= link_to_show_or_back meal_comment, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link meal_comment start -->
       <div class="col">
         <%= link_to edit_meal_comment_url(meal_comment), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link meal_comment end -->
 
-      <!-- Delete link meal_comment start -->
       <div class="col">
         <%= link_to meal_comment, method: :delete, data: { confirm: "Do you really want to delete this meal_comment?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link meal_comment end -->
     </div>
   </div>
 

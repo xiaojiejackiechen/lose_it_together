@@ -6,18 +6,14 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Rating</dt>
-      <!-- Display rating start -->
       <dd><%= nutritionist_profile.rating %></dd>
-      <!-- Display rating end -->
 
       <dt>Login</dt>
-      <!-- Display login_id start -->
       <dd>
         <% if @nutritionist_profile.login.present? %>
           <%= link_to nutritionist_profile.login, nutritionist_profile.login %>
         <% end %>
       </dd>
-      <!-- Display login_id end -->
 
     </dl>
 
@@ -26,21 +22,17 @@
         <%= link_to_show_or_back nutritionist_profile, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link nutritionist_profile start -->
       <div class="col">
         <%= link_to edit_nutritionist_profile_url(nutritionist_profile), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link nutritionist_profile end -->
 
-      <!-- Delete link nutritionist_profile start -->
       <div class="col">
         <%= link_to nutritionist_profile, method: :delete, data: { confirm: "Do you really want to delete this nutritionist_profile?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link nutritionist_profile end -->
     </div>
   </div>
 

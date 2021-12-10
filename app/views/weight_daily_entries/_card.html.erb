@@ -6,23 +6,17 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Weight tracker user</dt>
-      <!-- Display weight_tracker_user_id start -->
       <dd>
         <% if @weight_daily_entry.weight_tracker_user.present? %>
           <%= link_to weight_daily_entry.weight_tracker_user, weight_daily_entry.weight_tracker_user %>
         <% end %>
       </dd>
-      <!-- Display weight_tracker_user_id end -->
 
       <dt>Weight in lb</dt>
-      <!-- Display weight_in_lb start -->
       <dd><%= weight_daily_entry.weight_in_lb %></dd>
-      <!-- Display weight_in_lb end -->
 
       <dt>Recorded date</dt>
-      <!-- Display recorded_date start -->
       <dd><%= weight_daily_entry.recorded_date %></dd>
-      <!-- Display recorded_date end -->
 
     </dl>
 
@@ -31,21 +25,17 @@
         <%= link_to_show_or_back weight_daily_entry, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link weight_daily_entry start -->
       <div class="col">
         <%= link_to edit_weight_daily_entry_url(weight_daily_entry), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link weight_daily_entry end -->
 
-      <!-- Delete link weight_daily_entry start -->
       <div class="col">
         <%= link_to weight_daily_entry, method: :delete, data: { confirm: "Do you really want to delete this weight_daily_entry?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link weight_daily_entry end -->
     </div>
   </div>
 

@@ -6,53 +6,39 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Username</dt>
-      <!-- Display username start -->
       <dd><%= weight_tracker_profile.username %></dd>
-      <!-- Display username end -->
 
       <dt>Target daily calories</dt>
-      <!-- Display target_daily_calories start -->
       <dd><%= weight_tracker_profile.target_daily_calories %></dd>
-      <!-- Display target_daily_calories end -->
 
       <dt>Target weight in lb</dt>
-      <!-- Display target_weight_in_lb start -->
       <dd><%= weight_tracker_profile.target_weight_in_lb %></dd>
-      <!-- Display target_weight_in_lb end -->
 
       <dt>Profile pic</dt>
-      <!-- Display profile_pic start -->
       <dd>
         <%= cl_image_tag @weight_tracker_profile.profile_pic, class: "img-fluid" %>
       </dd>
-      <!-- Display profile_pic end -->
 
       <dt>Associated personal trainer</dt>
-      <!-- Display associated_personal_trainer_id start -->
       <dd>
         <% if @weight_tracker_profile.dedicated_personal_trainer.present? %>
           <%= link_to weight_tracker_profile.dedicated_personal_trainer, weight_tracker_profile.dedicated_personal_trainer %>
         <% end %>
       </dd>
-      <!-- Display associated_personal_trainer_id end -->
 
       <dt>Associated nutritionist</dt>
-      <!-- Display associated_nutritionist_id start -->
       <dd>
         <% if @weight_tracker_profile.nutritionist.present? %>
           <%= link_to weight_tracker_profile.nutritionist, weight_tracker_profile.nutritionist %>
         <% end %>
       </dd>
-      <!-- Display associated_nutritionist_id end -->
 
       <dt>Login</dt>
-      <!-- Display login_id start -->
       <dd>
         <% if @weight_tracker_profile.login.present? %>
           <%= link_to weight_tracker_profile.login, weight_tracker_profile.login %>
         <% end %>
       </dd>
-      <!-- Display login_id end -->
 
     </dl>
 
@@ -61,7 +47,6 @@
         <%= link_to_show_or_back weight_tracker_profile, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link weight_tracker_profile start -->
       <div class="col">
         <% if current_user_login == @weight_tracker_profile.login %>
           <%= link_to edit_weight_tracker_profile_url(weight_tracker_profile), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -69,9 +54,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link weight_tracker_profile end -->
 
-      <!-- Delete link weight_tracker_profile start -->
       <div class="col">
         <% if current_user_login == @weight_tracker_profile.login %>
           <%= link_to weight_tracker_profile, method: :delete, data: { confirm: "Do you really want to delete this weight_tracker_profile?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -79,7 +62,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link weight_tracker_profile end -->
     </div>
   </div>
 

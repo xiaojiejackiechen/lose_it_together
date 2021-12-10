@@ -1,7 +1,6 @@
 <% was_validated = workout.errors.any? %>
 
 <%= form_with(model: workout, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for workout_date start -->
   <div class="form-group">
     <% workout_date_class = "form-control" %>
     <% workout_date_was_invalid = workout.errors.include?(:workout_date) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :workout_date %>
-    <!-- Input for workout_date start -->
     <%= f.date_select :workout_date, class: workout_date_class, placeholder: "Enter workout date" %>
-    <!-- Input for workout_date end -->
     <% if workout_date_was_invalid %>
       <% workout.errors.full_messages_for(:workout_date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for workout_date end -->
-  <!-- Label and input for weight_tracker_user_id start -->
   <div class="form-group">
     <% weight_tracker_user_class = "form-control" %>
     <% weight_tracker_user_was_invalid = workout.errors.include?(:weight_tracker_user) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :weight_tracker_user_id %>
-    <!-- Input for weight_tracker_user_id start -->
     <%= f.collection_select :weight_tracker_user_id, WeightTrackerProfile.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for weight_tracker_user_id end -->
     <% if weight_tracker_user_was_invalid %>
       <% workout.errors.full_messages_for(:weight_tracker_user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for weight_tracker_user_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

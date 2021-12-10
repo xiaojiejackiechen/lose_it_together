@@ -1,22 +1,12 @@
-<!-- Form personal_trainer_profile start -->
 <%= form_with(model: @personal_trainer_profile, local: true) do |f| %>
-<!-- Form personal_trainer_profile end -->
 
-  <!-- Label and input for rating start -->
   <div class="form-group">
     <%= f.label :rating %>
 
-    <!-- Input for rating start -->
     <%= f.text_field :rating, class: "form-control" %>
-    <!-- Input for rating end -->
   </div>
-  <!-- Label and input for rating end -->
 
-  <!-- Label and input for login_id start -->
-  <!-- Input for login_id start -->
   <%= f.hidden_field :login_id, value: @user_login.id %>
-  <!-- Input for login_id end -->
-  <!-- Label and input for login_id end -->
 
   <%= f.submit "Create personal trainer profile", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

@@ -1,7 +1,6 @@
 <% was_validated = food.errors.any? %>
 
 <%= form_with(model: food, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for meal_id start -->
   <div class="form-group">
     <% meal_class = "form-control" %>
     <% meal_was_invalid = food.errors.include?(:meal) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :meal_id %>
-    <!-- Input for meal_id start -->
     <%= f.collection_select :meal_id, Meal.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for meal_id end -->
     <% if meal_was_invalid %>
       <% food.errors.full_messages_for(:meal).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for meal_id end -->
-  <!-- Label and input for food_name start -->
   <div class="form-group">
     <% food_name_class = "form-control" %>
     <% food_name_was_invalid = food.errors.include?(:food_name) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :food_name %>
-    <!-- Input for food_name start -->
     <%= f.text_field :food_name, class: food_name_class, placeholder: "Enter food name" %>
-    <!-- Input for food_name end -->
     <% if food_name_was_invalid %>
       <% food.errors.full_messages_for(:food_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for food_name end -->
-  <!-- Label and input for number_of_gram_consumed start -->
   <div class="form-group">
     <% number_of_gram_consumed_class = "form-control" %>
     <% number_of_gram_consumed_was_invalid = food.errors.include?(:number_of_gram_consumed) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :number_of_gram_consumed %>
-    <!-- Input for number_of_gram_consumed start -->
     <%= f.number_field :number_of_gram_consumed, class: number_of_gram_consumed_class, placeholder: "Enter number of gram consumed" %>
-    <!-- Input for number_of_gram_consumed end -->
     <% if number_of_gram_consumed_was_invalid %>
       <% food.errors.full_messages_for(:number_of_gram_consumed).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for number_of_gram_consumed end -->
-  <!-- Label and input for calories_consumed start -->
   <div class="form-group">
     <% calories_consumed_class = "form-control" %>
     <% calories_consumed_was_invalid = food.errors.include?(:calories_consumed) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :calories_consumed %>
-    <!-- Input for calories_consumed start -->
     <%= f.number_field :calories_consumed, class: calories_consumed_class, placeholder: "Enter calories consumed" %>
-    <!-- Input for calories_consumed end -->
     <% if calories_consumed_was_invalid %>
       <% food.errors.full_messages_for(:calories_consumed).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for calories_consumed end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

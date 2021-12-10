@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @weight_tracker_profile.weight_daily_entries.each do |weight_daily_entry| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to weight_daily_entry, weight_daily_entry %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to weight_daily_entry, method: :delete, data: { confirm: "Do you really want to delete this weight_daily_entry" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="weight_tracker_profile_weight_daily_entries_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "weight_tracker_profiles/weight_tracker_profile_weight_daily_entries_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

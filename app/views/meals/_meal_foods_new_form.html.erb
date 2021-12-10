@@ -1,42 +1,24 @@
-<!-- Form food start -->
 <%= form_with(model: @food, local: true) do |f| %>
-<!-- Form food end -->
 
-  <!-- Label and input for meal_id start -->
-  <!-- Input for meal_id start -->
   <%= f.hidden_field :meal_id, value: @meal.id %>
-  <!-- Input for meal_id end -->
-  <!-- Label and input for meal_id end -->
 
-  <!-- Label and input for food_name start -->
   <div class="form-group">
     <%= f.label :food_name %>
 
-    <!-- Input for food_name start -->
     <%= f.text_field :food_name, class: "form-control" %>
-    <!-- Input for food_name end -->
   </div>
-  <!-- Label and input for food_name end -->
 
-  <!-- Label and input for number_of_gram_consumed start -->
   <div class="form-group">
     <%= f.label :number_of_gram_consumed %>
 
-    <!-- Input for number_of_gram_consumed start -->
     <%= f.text_field :number_of_gram_consumed, class: "form-control" %>
-    <!-- Input for number_of_gram_consumed end -->
   </div>
-  <!-- Label and input for number_of_gram_consumed end -->
 
-  <!-- Label and input for calories_consumed start -->
   <div class="form-group">
     <%= f.label :calories_consumed %>
 
-    <!-- Input for calories_consumed start -->
     <%= f.text_field :calories_consumed, class: "form-control" %>
-    <!-- Input for calories_consumed end -->
   </div>
-  <!-- Label and input for calories_consumed end -->
 
   <%= f.submit "Create food", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

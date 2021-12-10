@@ -6,23 +6,17 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Weight tracker user</dt>
-      <!-- Display weight_tracker_user_id start -->
       <dd>
         <% if @meal.calorie_tracker_user.present? %>
           <%= link_to meal.calorie_tracker_user, meal.calorie_tracker_user %>
         <% end %>
       </dd>
-      <!-- Display weight_tracker_user_id end -->
 
       <dt>Date and time of meal</dt>
-      <!-- Display date_and_time_of_meal start -->
       <dd><%= meal.date_and_time_of_meal %></dd>
-      <!-- Display date_and_time_of_meal end -->
 
       <dt>Meal type</dt>
-      <!-- Display meal_type start -->
       <dd><%= meal.meal_type %></dd>
-      <!-- Display meal_type end -->
 
     </dl>
 
@@ -31,21 +25,17 @@
         <%= link_to_show_or_back meal, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link meal start -->
       <div class="col">
         <%= link_to edit_meal_url(meal), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link meal end -->
 
-      <!-- Delete link meal start -->
       <div class="col">
         <%= link_to meal, method: :delete, data: { confirm: "Do you really want to delete this meal?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link meal end -->
     </div>
   </div>
 

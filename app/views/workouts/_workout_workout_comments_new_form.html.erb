@@ -1,31 +1,17 @@
-<!-- Form workout_comment start -->
 <%= form_with(model: @workout_comment, local: true) do |f| %>
-<!-- Form workout_comment end -->
 
-  <!-- Label and input for workout_id start -->
-  <!-- Input for workout_id start -->
   <%= f.hidden_field :workout_id, value: @workout.id %>
-  <!-- Input for workout_id end -->
-  <!-- Label and input for workout_id end -->
 
-  <!-- Label and input for commenter_user_id start -->
   <div class="form-group">
     <%= f.label :commenter_user_id %>
 
-    <!-- Input for commenter_user_id start -->
     <%= f.collection_select :commenter_user_id, UserLogin.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for commenter_user_id end -->
   </div>
-  <!-- Label and input for commenter_user_id end -->
 
-  <!-- Label and input for comment_text start -->
   <div class="form-group">
     <%= f.label :comment_text %>
-    <!-- Input for comment_text start -->
     <%= f.text_area :comment_text, rows: "3", class: "form-control" %>
-    <!-- Input for comment_text end -->
   </div>
-  <!-- Label and input for comment_text end -->
 
   <%= f.submit "Create workout comment", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

@@ -10,18 +10,14 @@
   <ul class="list-group list-group-flush">
     <% @user_login.weight_tracker_profiles.each do |weight_tracker_profile| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to weight_tracker_profile, weight_tracker_profile %>
-        <!-- Show link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="user_login_weight_tracker_profiles_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "user_logins/user_login_weight_tracker_profiles_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

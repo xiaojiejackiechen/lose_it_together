@@ -1,7 +1,6 @@
 <% was_validated = meal_comment.errors.any? %>
 
 <%= form_with(model: meal_comment, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for meal_id start -->
   <div class="form-group">
     <% meal_class = "form-control" %>
     <% meal_was_invalid = meal_comment.errors.include?(:meal) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :meal_id %>
-    <!-- Input for meal_id start -->
     <%= f.collection_select :meal_id, Meal.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for meal_id end -->
     <% if meal_was_invalid %>
       <% meal_comment.errors.full_messages_for(:meal).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for meal_id end -->
-  <!-- Label and input for commenter_user_id start -->
   <div class="form-group">
     <% commenter_user_class = "form-control" %>
     <% commenter_user_was_invalid = meal_comment.errors.include?(:commenter_user) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :commenter_user_id %>
-    <!-- Input for commenter_user_id start -->
     <%= f.collection_select :commenter_user_id, UserLogin.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for commenter_user_id end -->
     <% if commenter_user_was_invalid %>
       <% meal_comment.errors.full_messages_for(:commenter_user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for commenter_user_id end -->
-  <!-- Label and input for comment_text start -->
   <div class="form-group">
     <% comment_text_class = "form-control" %>
     <% comment_text_was_invalid = meal_comment.errors.include?(:comment_text) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :comment_text %>
-    <!-- Input for comment_text start -->
     <%= f.text_area :comment_text, class: comment_text_class, placeholder: "Enter comment text" %>
-    <!-- Input for comment_text end -->
     <% if comment_text_was_invalid %>
       <% meal_comment.errors.full_messages_for(:comment_text).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for comment_text end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @nutritionist_profile.weight_tracker.each do |weight_tracker_profile| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to weight_tracker_profile, weight_tracker_profile %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user_login == weight_tracker_profile.login %>
           <%= link_to weight_tracker_profile, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="nutritionist_profile_weight_tracker_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "nutritionist_profiles/nutritionist_profile_weight_tracker_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

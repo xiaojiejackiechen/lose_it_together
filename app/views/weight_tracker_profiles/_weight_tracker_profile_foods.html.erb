@@ -6,11 +6,9 @@
   <ul class="list-group list-group-flush">
     <% @weight_tracker_profile.foods.each do |food| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/foods/<%= food.id %>">
           <%= food %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

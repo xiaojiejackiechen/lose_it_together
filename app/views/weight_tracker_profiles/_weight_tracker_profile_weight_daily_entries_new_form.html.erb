@@ -1,31 +1,17 @@
-<!-- Form weight_daily_entry start -->
 <%= form_with(model: @weight_daily_entry, local: true) do |f| %>
-<!-- Form weight_daily_entry end -->
 
-  <!-- Label and input for weight_tracker_user_id start -->
-  <!-- Input for weight_tracker_user_id start -->
   <%= f.hidden_field :weight_tracker_user_id, value: @weight_tracker_profile.id %>
-  <!-- Input for weight_tracker_user_id end -->
-  <!-- Label and input for weight_tracker_user_id end -->
 
-  <!-- Label and input for weight_in_lb start -->
   <div class="form-group">
     <%= f.label :weight_in_lb %>
 
-    <!-- Input for weight_in_lb start -->
     <%= f.text_field :weight_in_lb, class: "form-control" %>
-    <!-- Input for weight_in_lb end -->
   </div>
-  <!-- Label and input for weight_in_lb end -->
 
-  <!-- Label and input for recorded_date start -->
   <div class="form-group">
     <%= f.label :recorded_date %>
-    <!-- Input for recorded_date start -->
     <%= f.datetime_select :recorded_date, class: "form-control" %>
-    <!-- Input for recorded_date end -->
   </div>
-  <!-- Label and input for recorded_date end -->
 
   <%= f.submit "Create weight daily entry", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
