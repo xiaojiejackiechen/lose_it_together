@@ -7,6 +7,9 @@ class PersonalTrainerProfileResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :login,
+             resource: UserLoginResource
+
   has_many   :weight_tracker_profiles,
              foreign_key: :associated_personal_trainer_id
 
