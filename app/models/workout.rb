@@ -1,6 +1,9 @@
 class Workout < ApplicationRecord
   # Direct associations
 
+  belongs_to :weight_tracker_user,
+             :class_name => "WeightTrackerProfile"
+
   has_many   :workout_comments,
              :dependent => :destroy
 
