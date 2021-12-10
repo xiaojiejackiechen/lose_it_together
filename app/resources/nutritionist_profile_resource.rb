@@ -7,6 +7,9 @@ class NutritionistProfileResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :login,
+             resource: UserLoginResource
+
   # Indirect associations
 
 end

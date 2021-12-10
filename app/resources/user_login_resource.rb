@@ -9,6 +9,9 @@ class UserLoginResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :nutritionist_profiles,
+             foreign_key: :login_id
+
   has_many   :personal_trainer_profiles,
              foreign_key: :login_id
 
