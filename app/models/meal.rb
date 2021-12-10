@@ -3,6 +3,10 @@ class Meal < ApplicationRecord
 
   # Direct associations
 
+  belongs_to :calorie_tracker_user,
+             :class_name => "WeightTrackerProfile",
+             :foreign_key => "weight_tracker_user_id"
+
   has_many   :meal_comments,
              :dependent => :destroy
 

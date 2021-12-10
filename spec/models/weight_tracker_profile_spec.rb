@@ -4,6 +4,8 @@ RSpec.describe WeightTrackerProfile, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:meals) }
+
     end
 
     describe "InDirect Associations" do
