@@ -158,30 +158,9 @@
   </div>
   <!-- Label and input for associated_nutritionist_id end -->
   <!-- Label and input for login_id start -->
-  <div class="form-group">
-    <% login_class = "form-control" %>
-    <% login_was_invalid = weight_tracker_profile.errors.include?(:login) %>
-
-    <% if was_validated %>
-      <% if login_was_invalid %>
-        <% login_class << " is-invalid" %>
-      <% else %>
-        <% login_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :login_id %>
-    <!-- Input for login_id start -->
-    <%= f.collection_select :login_id, UserLogin.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for login_id end -->
-    <% if login_was_invalid %>
-      <% weight_tracker_profile.errors.full_messages_for(:login).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <!-- Input for "login_id" start -->
+  <%= f.hidden_field :login_id, value: current_user_login.id %>
+  <!-- Input for "login_id" end -->
   <!-- Label and input for login_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

@@ -59,13 +59,9 @@
   <!-- Label and input for associated_nutritionist_id end -->
 
   <!-- Label and input for login_id start -->
-  <div class="form-group">
-    <%= f.label :login_id %>
-
-    <!-- Input for login_id start -->
-    <%= f.collection_select :login_id, UserLogin.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for login_id end -->
-  </div>
+  <!-- Input for "login_id" start -->
+  <%= f.hidden_field :login_id, value: current_user_login.id %>
+  <!-- Input for "login_id" end -->
   <!-- Label and input for login_id end -->
 
   <%= f.submit "Create weight tracker profile", class: "btn btn-block btn-outline-secondary" %>
