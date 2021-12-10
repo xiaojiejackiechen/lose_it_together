@@ -13,7 +13,7 @@
     <%= f.label :commenter_user_id %>
 
     <!-- Input for commenter_user_id start -->
-    <%= f.text_field :commenter_user_id, class: "form-control" %>
+    <%= f.collection_select :commenter_user_id, UserLogin.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for commenter_user_id end -->
   </div>
   <!-- Label and input for commenter_user_id end -->
