@@ -12,6 +12,9 @@ class WeightTrackerProfileResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :meals,
+             foreign_key: :weight_tracker_user_id
+
   # Indirect associations
 
 end

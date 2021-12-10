@@ -8,6 +8,10 @@ class MealResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :calorie_tracker_user,
+             resource: WeightTrackerProfileResource,
+             foreign_key: :weight_tracker_user_id
+
   has_many   :meal_comments
 
   has_many   :foods
