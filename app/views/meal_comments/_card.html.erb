@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Meal Comment #<%= meal_comment.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Meal</dt>
+      <!-- Display meal_id start -->
+      <dd><%= meal_comment.meal_id %></dd>
+      <!-- Display meal_id end -->
+
+      <dt>Commenter user</dt>
+      <!-- Display commenter_user_id start -->
+      <dd><%= meal_comment.commenter_user_id %></dd>
+      <!-- Display commenter_user_id end -->
+
+      <dt>Comment text</dt>
+      <!-- Display comment_text start -->
+      <dd><%= meal_comment.comment_text %></dd>
+      <!-- Display comment_text end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back meal_comment, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link meal_comment start -->
+      <div class="col">
+        <%= link_to edit_meal_comment_url(meal_comment), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link meal_comment end -->
+
+      <!-- Delete link meal_comment start -->
+      <div class="col">
+        <%= link_to meal_comment, method: :delete, data: { confirm: "Do you really want to delete this meal_comment?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link meal_comment end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(meal_comment.updated_at) %> ago
+  </div>
+</div>

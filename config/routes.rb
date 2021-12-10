@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :meal_comments
   resources :workout_comments
   resources :nutritionist_profiles
   devise_for :user_logins
