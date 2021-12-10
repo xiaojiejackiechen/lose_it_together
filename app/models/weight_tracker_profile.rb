@@ -26,6 +26,10 @@ class WeightTrackerProfile < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :foods,
+             :through => :meals,
+             :source => :foods
+
   has_many   :exercises,
              :through => :workouts,
              :source => :exercises
