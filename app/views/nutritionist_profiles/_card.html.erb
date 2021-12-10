@@ -1,0 +1,46 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Nutritionist Profile #<%= nutritionist_profile.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Rating</dt>
+      <!-- Display rating start -->
+      <dd><%= nutritionist_profile.rating %></dd>
+      <!-- Display rating end -->
+
+      <dt>Login</dt>
+      <!-- Display login_id start -->
+      <dd><%= nutritionist_profile.login_id %></dd>
+      <!-- Display login_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back nutritionist_profile, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link nutritionist_profile start -->
+      <div class="col">
+        <%= link_to edit_nutritionist_profile_url(nutritionist_profile), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link nutritionist_profile end -->
+
+      <!-- Delete link nutritionist_profile start -->
+      <div class="col">
+        <%= link_to nutritionist_profile, method: :delete, data: { confirm: "Do you really want to delete this nutritionist_profile?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link nutritionist_profile end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(nutritionist_profile.updated_at) %> ago
+  </div>
+</div>

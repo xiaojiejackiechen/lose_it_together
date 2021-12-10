@@ -1,0 +1,57 @@
+<% was_validated = nutritionist_profile.errors.any? %>
+
+<%= form_with(model: nutritionist_profile, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for rating start -->
+  <div class="form-group">
+    <% rating_class = "form-control" %>
+    <% rating_was_invalid = nutritionist_profile.errors.include?(:rating) %>
+
+    <% if was_validated %>
+      <% if rating_was_invalid %>
+        <% rating_class << " is-invalid" %>
+      <% else %>
+        <% rating_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :rating %>
+    <!-- Input for rating start -->
+    <%= f.number_field :rating, class: rating_class, placeholder: "Enter rating" %>
+    <!-- Input for rating end -->
+    <% if rating_was_invalid %>
+      <% nutritionist_profile.errors.full_messages_for(:rating).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for rating end -->
+  <!-- Label and input for login_id start -->
+  <div class="form-group">
+    <% login_class = "form-control" %>
+    <% login_was_invalid = nutritionist_profile.errors.include?(:login) %>
+
+    <% if was_validated %>
+      <% if login_was_invalid %>
+        <% login_class << " is-invalid" %>
+      <% else %>
+        <% login_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :login_id %>
+    <!-- Input for login_id start -->
+    <%= f.number_field :login_id, class: login_class, placeholder: "Enter login" %>
+    <!-- Input for login_id end -->
+    <% if login_was_invalid %>
+      <% nutritionist_profile.errors.full_messages_for(:login).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for login_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
