@@ -7,6 +7,10 @@ class NutritionistProfileResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :weight_tracker,
+             resource: WeightTrackerProfileResource,
+             foreign_key: :associated_nutritionist_id
+
   belongs_to :login,
              resource: UserLoginResource
 
