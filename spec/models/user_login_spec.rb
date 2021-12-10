@@ -4,6 +4,8 @@ RSpec.describe UserLogin, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:meal_comments) }
+
     it { should have_many(:workout_comments) }
 
     it { should have_many(:nutritionist_profiles) }
