@@ -34,6 +34,14 @@ class WeightTrackerProfileResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :foods do
+    assign_each do |weight_tracker_profile, foods|
+      foods.select do |f|
+        f.id.in?(weight_tracker_profile.foods.map(&:id))
+      end
+    end
+  end
+
   has_many :exercises do
     assign_each do |weight_tracker_profile, exercises|
       exercises.select do |e|
