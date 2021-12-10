@@ -4,6 +4,8 @@ RSpec.describe Meal, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:meal_comments) }
+
     it { should have_many(:foods) }
 
     end

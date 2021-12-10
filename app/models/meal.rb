@@ -3,6 +3,9 @@ class Meal < ApplicationRecord
 
   # Direct associations
 
+  has_many   :meal_comments,
+             :dependent => :destroy
+
   has_many   :foods,
              :dependent => :destroy
 
